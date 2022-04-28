@@ -1,0 +1,85 @@
+<!-- <select class="form-select" aria-label="Region" [(ngModel)]="region">
+    <option value="Global">Global</option>
+    <option value="Nationnal">Nationnal</option>
+</select>
+<select class="form-select" aria-label="Type publicitée" [(ngModel)]="type">
+    <option value="Remise">Remise</option>
+    <option value="Forfait">Forfait</option>
+</select>
+<div [hidden]="region == 'Global'">
+    <input type="text" name="region" [(ngModel)]="place">
+</div>
+<button (click)="listAd()">Search</button>
+<table border="2">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Published</th>
+        <th>Delete</th>
+    </tr>
+    <tbody *ngFor="let p of listpub; let i=index">
+        <tr>
+            <td>{{p.titrePub}}</td>
+            <td>{{p.descriptionPub}}</td>
+            <td>{{p.imagePub}}</td>
+            <td>{{p.publishedago}}</td>
+            <td><button (click)="effacerAd(p.idPub)">Delete</button></td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <select class="form-control col-md-3" data-toggle="select2" [(ngModel)]="region" style="display: inline-block;">
+                    <option value="Global">Global</option>
+                    <option value="Nationnal">Nationnal</option>
+                </select>
+                <select class="form-control col-md-3" data-toggle="select2" [(ngModel)]="type" style="display: inline-block;">
+                    <option value="Remise">Remise</option>
+                    <option value="Forfait">Forfait</option>
+                </select>
+                <div [hidden]="region == 'Global'" style="display: inline-block;">
+                    <input type="text" name="region" [(ngModel)]="place">
+                </div>
+                <!-- <button (click)="listAd()">Search</button> -->
+                <button type="button" class="btn btn-outline-primary waves-effect waves-light" (click)="listAd()" style="float:right">Search</button>
+                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap">
+                    <thead>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Published</th>
+                        <th>Delete</th>
+                    </thead>
+
+
+                    <tbody *ngFor="let p of listpub; let i=index">
+                        <tr>
+                            <td>{{p.titrePub}}</td>
+                            <td>{{p.descriptionPub}}</td>
+                            <td>{{p.imagePub}}</td>
+                            <td>{{p.publishedago}}</td>
+                            <td><button (click)="effacerAd(p.idPub)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <!-- end card body-->
+        </div>
+        <!-- end card -->
+    </div>
+    <!-- end col-->
+</div>
+<!-- end row-->
+
+
+<h1>Stats</h1>
+<p *ngFor="let stat of stats; let i=index">
+    country : {{stat[1]}} total : {{stat[0]}} percentage : {{stat[2]}}%
+    <!-- {{stat[0]}} -->
+</p>

@@ -1,0 +1,110 @@
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="savearticle(f)">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="titreArticle" class="form-control" required ngModel #l="ngModel">
+        </div>
+        <div class="alert alert-danger" *ngIf="l.invalid && l.touched">
+            The Title is a required field
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <input type="text" name="descriptionArticle" class="form-control" required ngModel #e="ngModel">
+        </div>
+        <div class="alert alert-danger" *ngIf="e.invalid && e.touched">
+            The description is a required field
+        </div>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="text" name="imageArticle" class="form-control" required ngModel #p="ngModel">
+        </div>
+        <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+            The image is a required field
+        </div>
+        <select class="form-select" name="articleRegion" ngModel="International">
+            <option value="International">International</option>
+            <option value="Nationnal">Nationnal</option>
+            <option value="Regionnal">Regionnal</option>
+        </select>
+        <button class="btn btn-success" [disabled]="f.invalid" type="submit" style="float: right;">Add</button>
+    </form>
+</div>
+
+
+<div class="container">
+
+    <div class="page-content">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0 font-size-18">News Add Section</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
+                                <li class="breadcrumb-item active">News</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <form class="needs-validation" novalidate>
+                                <div class="form-row">
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom01">Title</label>
+                                        <input type="text" class="form-control" id="validationCustom01" placeholder="Title" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustom02">Desciption</label>
+                                        <input type="text" class="form-control" id="validationCustom02" placeholder="Description" required>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <label for="validationCustomUsername">Image</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="inputGroupPrepend">Pic</span>
+                                            </div>
+                                            <input type="text" class="form-control" id="validationCustomUsername" placeholder="Picture" aria-describedby="inputGroupPrepend" required>
+                                            <div class="invalid-feedback">
+                                                Please choose an image.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <select class="form-control col-md-6" data-toggle="select2" name="articleRegion" ngModel="International">
+                                        <option>Select</option>
+                                        <option value="International">International</option>
+                                        <option value="Nationnal">Nationnal</option>
+                                        <option value="Regionnal">Regionnal</option>
+                                    </select>
+                                </div>
+
+                                <button class="btn btn-primary waves-effect waves-light" type="submit" style="margin-top: 20px;float: right;">Add news</button>
+                            </form>
+
+                        </div>
+                        <!-- end card-body-->
+                    </div>
+                    <!-- end card-->
+                </div>
+                <!-- end col -->
+            </div>
+            <!-- end row-->
+        </div>
+    </div>
+</div>

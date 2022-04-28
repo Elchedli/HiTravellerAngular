@@ -1,0 +1,70 @@
+<select class="form-control select2-hidden-accessible col-md-2" name="recomCategory" [(ngModel)]="categorie" style="display: inline-block">
+    <option value="Coffees ">Coffees</option>
+    <option value="Restoration ">Restoration</option>
+    <option value="Antique ">Antique</option>
+    <option value="Museum ">Museum</option>
+    <option value="Hotel ">Hotel</option>
+    <option value="park ">park</option>
+    <option value="club ">club</option>
+    <option value="House ">House</option>
+    <option value="movie ">movie</option>
+</select>
+<div class="form-group col-md-9" style="display: inline-block; ">
+    <input type="text " name="country " placeholder="Country " class="form-control col-md-3 " [(ngModel)]="country ">
+</div>
+<button (click)="listRecomAvis() " class="btn btn-primary btn-rounded waves-effect waves-light ">Search</button>
+<!-- <table border="2 ">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Country</th>
+        <th>Rating</th>
+        <th>price</th>
+    </tr>
+    <tbody *ngFor="let p of listrecom; let i=index ">
+        <tr>
+            <td>{{p.titreRecom}}</td>
+            <td>{{p.imageRecom}}</td>
+            <td>{{p.description}}</td>
+            <td>{{p.country}}</td>
+            <td>{{p.recomAvis}}</td>
+            <td>{{p.price}}</td>
+        </tr>
+    </tbody>
+</table> -->
+
+
+<div class="row ">
+    <!-- <div class="col-md-6 col-xl-3 ">
+        <div class="card ">
+            <img class="card-img-top img-fluid " src="assets/images/media/sm-1.jpg " alt="Card image cap ">
+            <div class="card-body ">
+                <h5 class="card-title ">Card title</h5>
+                <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="# " class="btn btn-primary waves-effect waves-light ">Button</a>
+            </div>
+        </div>
+
+    </div> -->
+    <!-- end col -->
+
+    <div class="row ">
+        <div class="col-md-6 col-xl-3 " *ngFor="let p of listrecom; let i=index ">
+            <!-- Simple card -->
+            <div class="card ">
+                <img class="card-img-top img-fluid " src="{{p.imageRecom}} " alt="Card image cap ">
+                <div class="card-body ">
+                    <h5 class="card-title " style="display:inline-block; ">{{p.titreRecom}}</h5>
+                    <h5 class="card-title " style="display:inline-block;float: right; ">{{p.price}}$</h5>
+                    <p class="card-text">{{p.description}}</p>
+                    <a href="#" class="btn btn-primary waves-effect waves-light " style="margin-right: 10px;" (click)="deleteRecom(i)">Delete</a>
+                    <a href="#" class="btn btn-primary waves-effect waves-light " style="margin-right: 10px; ">Modify</a>
+                    <a href="" class="btn btn-primary waves-effect waves-light ">Add</a>
+                </div>
+            </div>
+
+        </div>
+        <!-- end col -->
+    </div>
+</div>
