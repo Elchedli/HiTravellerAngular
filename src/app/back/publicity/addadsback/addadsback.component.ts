@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AcceuilService } from 'src/app/services/acceuil.service';
+import Swal from 'sweetalert2';
 // import {Country} from '@angular-material-extensions/select-country'; 
 @Component({
   selector: 'app-addadsback',
@@ -34,6 +35,23 @@ export class AddadsbackComponent implements OnInit {
 
   public ajouterAd(value:any){
     let resp = this.service.ajouterAd(value);
-    resp.subscribe((data)=>this.message = data);
+    resp.subscribe((datas)=>{
+      console.log(datas);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        });
+    }, error => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'The request has not been passed',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
   }
 }

@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PostComponent } from '../src/app/Forum/post/post.component';
-import { AddPostComponent } from '../src/app/Forum/add-post/add-post.component';
-import { UpdatePostComponent } from './app/Forum/update-post/update-post.component';
 import { AddnewsbackComponent } from './app/back/news/addnewsback/addnewsback.component';
 import { ShownewsbackComponent } from './app/back/news/shownewsback/shownewsback.component';
 import { ListpartnersbackComponent } from './app/back/partner/listpartnersback/listpartnersback.component';
@@ -15,9 +12,6 @@ import { ShowadsbackComponent } from './app/back/publicity/showadsback/showadsba
 
  const routes : Routes = [
   {path:"",redirectTo:"back/news/show",pathMatch:"full"},
-  {path: 'post',component : PostComponent},
-  {path: 'addPost',component : AddPostComponent},
-  {path: 'updatePost',component : UpdatePostComponent},
   {path: 'back/news/add',component : AddnewsbackComponent},
   {path: 'back/news/show',component : ShownewsbackComponent},
   {path: 'back/partner/add',component : AjoutpartnerbackComponent},

@@ -29,7 +29,9 @@
     </tbody>
 </table> -->
 
-
+<h2 class="label" style="margin-bottom: 30px;">
+    Ads Configuration
+</h2>
 <div class="row">
     <div class="col-12">
         <div class="card">
@@ -42,12 +44,15 @@
                     <option value="Remise">Remise</option>
                     <option value="Forfait">Forfait</option>
                 </select>
-                <div [hidden]="region == 'Global'" style="display: inline-block;">
-                    <input type="text" name="region" [(ngModel)]="place">
+                <div [hidden]="region == 'Global'" style="display: inline-block;margin-left: 20px;">
+                    <input type="text" placeholder="Country" name="region" [(ngModel)]="place">
                 </div>
+                <button type="button" class="btn btn-outline-primary waves-effect waves-light" (click)="listAd()" style="margin-left: 20px;">Search</button>
                 <!-- <button (click)="listAd()">Search</button> -->
-                <button type="button" class="btn btn-outline-primary waves-effect waves-light" (click)="listAd()" style="float:right">Search</button>
-                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap">
+                <a routerLink="/back/ad/add" class="btn btn-success waves-effect waves-light" style="float:right;margin-left: 10px;">Add</a>
+
+
+                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap" style="margin-top: 20px;">
                     <thead>
                         <th>Title</th>
                         <th>Description</th>
@@ -78,7 +83,7 @@
 <!-- end row-->
 
 
-<h1>Stats</h1>
+<h2 style="display:table;margin: 0 auto;">Stats</h2>
 <p *ngFor="let stat of stats; let i=index">
     country : {{stat[1]}} total : {{stat[0]}} percentage : {{stat[2]}}%
     <!-- {{stat[0]}} -->

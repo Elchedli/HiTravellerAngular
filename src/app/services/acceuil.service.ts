@@ -39,11 +39,15 @@ export class AcceuilService {
     return this.http.get("http://localhost:8083/voyageAffaires/acceuil/newsAllRegion/"+region);
   }
   public newsajouter(jsonData:Object){
-    return this.http.post<any>("http://localhost:8083/voyageAffaires/acceuil/ajouterNews",jsonData);
+    return this.http.post<any>("http://localhost:8083/voyageAffaires/acceuil/ajouterNews",jsonData,);
   }
 
   public newsAll(){
     return this.http.post<any>("http://localhost:8083/pi/acceuil/NewsAll",{});
+  }
+
+  public deleteNews(id:number){
+    return this.http.get("http://localhost:8083/voyageAffaires/acceuil/deleteNews/"+id,{responseType:'text' as 'json'});
   }
  
   //make delete news
@@ -61,8 +65,10 @@ export class AcceuilService {
   }
 
   public recomdelete(id:number){
-    return this.http.get("http://localhost:8000/pi/acceuil/"+id,{responseType:'text' as 'json'});
+    return this.http.get("http://localhost:8083/voyageAffaires/acceuil/DeleteRecom/"+id,{responseType:'text' as 'json'});
   }
+
+
   //make update
 
   //Partie messagerie

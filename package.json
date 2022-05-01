@@ -18,7 +18,14 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "angular-font-awesome": "^3.1.2",
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "mdb-ui-kit": "^4.0.0",
     "rxjs": "~7.5.0",
+    "sweetalert2": "^11.4.9",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -28,12 +35,16 @@
     "@angular/compiler-cli": "~13.2.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "css-loader": "^6.7.1",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss": "^8.4.13",
+    "postcss-loader": "^6.2.1",
     "typescript": "~4.5.2"
   }
 }

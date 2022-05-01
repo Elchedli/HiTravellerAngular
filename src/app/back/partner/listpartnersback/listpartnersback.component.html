@@ -1,4 +1,8 @@
-<table border="2">
+
+<div class="label" style="margin-bottom: 40px;">
+    Partner configuration
+</div>
+<!-- <table border="2">
     <tr>
         <th>nom</th>
         <th>logo</th>
@@ -6,9 +10,23 @@
     <tbody *ngFor="let p of listpart; let i=index">
         <tr>
             <td>{{p.nomPart}}</td>
-            <!-- image normally -->
             <td>{{p.logoPart}}</td>
             <td><button (click)="deletePart(p.nomPart)">Delete</button></td>
         </tr>
     </tbody>
-</table>
+</table> -->
+
+
+<a routerLink="/back/partner/add" class="btn btn-info btn-rounded waves-effect waves-light" style="margin-bottom: 20px;">New Partner</a>
+<div class="row ">
+    <div class="col-md-6 col-xl-3 " *ngFor="let p of listpart; let i=index ">
+        <!-- Simple card -->
+        <div class="card ">
+            <img class="card-img-top img-fluid " src="{{p.logoPart}}" alt="Card image cap ">
+            <div class="card-body ">
+                <p class="card-text">{{p.nomPart}}</p>
+                <button class="btn btn-warning waves-effect waves-light" style="margin-right: 10px;" (click)="deletePart(p.nomPart)">Delete</button>
+                <!-- <button class="btn btn-success waves-effect waves-light" style="margin-right: 10px; ">Modify</button> -->
+            </div>
+        </div>
+    </div>

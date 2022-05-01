@@ -1,0 +1,12 @@
+@import "https://themeim.com/demo/flynext/assets/css/animate.css";
+.avionvol img {
+  animation: ImgAnimate 3s infinite cubic-bezier(0.4, 0, 1, 1) 0.2s;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+  animation-delay: 0.2s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  animation-name: ImgAnimate;
+}

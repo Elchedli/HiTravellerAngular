@@ -1,1 +1,6 @@
-<app-menu></app-menu>
+<div *ngIf="router.url.includes('/back/')">
+  <app-menu></app-menu>
+</div>
+<div *ngIf="router.url.includes('/front/')">
+  <app-menu-front></app-menu-front>
+</div>

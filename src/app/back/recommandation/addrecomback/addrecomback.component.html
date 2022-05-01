@@ -21,6 +21,13 @@
         <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
             The image is a required field
         </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="price" class="form-control" required ngModel #h="ngModel">
+        </div>
+        <div class="alert alert-danger" *ngIf="h.invalid && h.touched">
+            The price is a required field
+        </div>
         <select class="form-select" name="recomCategory" ngModel="Coffees">
             <option value="Coffees">Coffees</option>
             <option value="Restoration">Restoration</option>
@@ -283,6 +290,6 @@
             <option value="Zambia">Zambia</option>
             <option value="Zimbabwe">Zimbabwe</option>
         </select>
-        <button class="btn btn-success" [disabled]="f.invalid" type="submit">Add</button>
+        <button class="btn btn-success" [disabled]="f.invalid" type="submit" style="float: right;">Add</button>
     </form>
 </div>

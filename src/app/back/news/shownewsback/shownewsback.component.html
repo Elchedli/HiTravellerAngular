@@ -1,13 +1,13 @@
-<select class="form-select" aria-label="Region" [(ngModel)]="region" (change)="listnewsregion()">
+<!-- <select class="form-select" aria-label="Region" [(ngModel)]="region" (change)="listnewsregion()">
     <option value="International">International</option>
     <option value="Nationnal">Nationnal</option>
     <option value="Regionnal">Regionnal</option>
-</select>
+</select> -->
 <!-- <div [hidden]="region == 'Global'">
     <input type="text" name="region" [(ngModel)]="place">
 </div> -->
 <!-- <button (click)="listnewsregion()">Search</button> -->
-<table border="2">
+<!-- <table border="2">
     <tr>
         <th>Title</th>
         <th>Description</th>
@@ -16,7 +16,6 @@
         <th [hidden]="region != 'Regionnal'">city</th>
         <th>Published</th>
         <th>views</th>
-        <!-- <th>Delete</th> -->
     </tr>
     <tbody *ngFor="let p of listarticle; let i=index">
         <tr>
@@ -27,21 +26,24 @@
             <td [hidden]="region != 'Regionnal'">{{p.city}}</td>
             <td>{{p.publishedago}}</td>
             <td>{{p.vues}}</td>
-            <!-- <td><button (click)="effacerAd(p.idPub)">Delete</button></td> -->
+            <td><button (click)="effacerNews(p.idNews)">Delete</button></td>
         </tr>
     </tbody>
-</table>
-
+</table> -->
+<div class="label" style="margin-bottom: 30px;">
+    News Configuration
+</div>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <select class="form-select" aria-label="Region" [(ngModel)]="region" (change)="listnewsregion()">
+                <select class="form-control select2-hidden-accessible col-md-2" aria-label="Region" [(ngModel)]="region" (change)="listnewsregion()" style="display: inline-block;">
                     <option value="International">International</option>
                     <option value="Nationnal">Nationnal</option>
                     <option value="Regionnal">Regionnal</option>
                 </select>
-                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap">
+                <a routerLink="/back/news/add" class="btn btn-primary btn-rounded waves-effect waves-light" style="float: right;display: inline-block;">Add News</a>
+                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap" style="margin-top: 20px">
                     <thead>
                         <th>Title</th>
                         <th>Description</th>
@@ -50,6 +52,7 @@
                         <th [hidden]="region != 'Regionnal'">city</th>
                         <th>Published</th>
                         <th>views</th>
+                        <th>Delete</th>
                     </thead>
 
 
@@ -62,6 +65,7 @@
                             <td [hidden]="region != 'Regionnal'">{{p.city}}</td>
                             <td>{{p.publishedago}}</td>
                             <td>{{p.vues}}</td>
+                            <td><button (click)="effacerNews(p.idNews)">Delete</button></td>
                         </tr>
                     </tbody>
                 </table>

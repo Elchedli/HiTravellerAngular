@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AcceuilService } from 'src/app/services/acceuil.service';
-// import { Publicite } from '../../model/publicite';
-// import { PubliciteService } from '../service/publicite.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-showaddback',
   templateUrl: './showadsback.component.html',
@@ -23,8 +22,25 @@ export class ShowadsbackComponent implements OnInit {
 
   public effacerAd(id:number){
     let resp = this.service.DeleteAd(id);
-    resp.subscribe((data)=>this.message = data);
-
+    resp.subscribe((datas)=>{
+      console.log(datas);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        this.listAd();
+    }, error => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'The request has not been passed',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    });
   }
 
   public getStats(){

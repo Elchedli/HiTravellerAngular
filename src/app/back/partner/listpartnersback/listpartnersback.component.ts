@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AcceuilService } from 'src/app/services/acceuil.service';
 // import { PartnerService } from '../partner.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-listpartnersback',
   templateUrl: './listpartnersback.component.html',
@@ -16,6 +16,7 @@ export class ListpartnersbackComponent implements OnInit {
   ngOnInit(): void {
     this.allPart();
   }
+
   public allPart(){
     let resp = this.service.afficherpartner();
     resp.subscribe((datas)=>{
@@ -26,6 +27,24 @@ export class ListpartnersbackComponent implements OnInit {
 
   public deletePart(name:string){
     let resp = this.service.effacerpart(name);
-    resp.subscribe((datas => this.message =  datas));
+    resp.subscribe((datas)=>{
+      console.log(datas);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.allPart();
+    }, error => {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'The request has not been passed',
+        showConfirmButton: false,
+        timer: 1500
+      })
+  });
   }
 }

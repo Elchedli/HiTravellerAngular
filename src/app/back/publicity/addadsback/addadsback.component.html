@@ -1,4 +1,5 @@
 <div class="container">
+    <h3>Add new Add</h3>
     <form #f="ngForm" (ngSubmit)="save(f)">
         <div class="form-group">
             <label>Title</label>
@@ -21,15 +22,15 @@
         <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
             The image is a required field
         </div>
-        <select class="form-select" aria-label="Region" name="pubRegion" [(ngModel)]="region">
+        <select class="form-control col-md-3" aria-label="Region" name="pubRegion" [(ngModel)]="region" style="margin-right: 10px;">
             <option value="Global">Global</option>
             <option value="Nationnal">Nationnal</option>
         </select>
-        <select class="form-select" aria-label="Type publicitée" name="pubType" [(ngModel)]="type">
+        <select class="form-control col-md-3" aria-label="Type publicitée" name="pubType" [(ngModel)]="type" style="margin-right: 10px;">
             <option value="Remise">Remise</option>
             <option value="Forfait">Forfait</option>
         </select>
-        <select class="form-select form-select-lg mb-3" name="country" [hidden]="region == 'Global'" [(ngModel)]="country">
+        <select class="form-control col-md-3" name="country" [hidden]="region == 'Global'" [(ngModel)]="country" style="margin-right: 10px;">
             <option value="Afghanistan">Afghanistan</option>
             <option value="Aland">Åland Islands</option>
             <option value="Albania">Albania</option>

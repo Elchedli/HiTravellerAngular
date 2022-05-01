@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MenuComponent } from './back/menu/menu.component';
 import { AcceuilService } from './services/acceuil.service';
 import { AddnewsbackComponent } from './back/news/addnewsback/addnewsback.component';
@@ -15,11 +15,13 @@ import { AddrecombackComponent } from './back/recommandation/addrecomback/addrec
 import { ShowrecombackComponent } from './back/recommandation/showrecomback/showrecomback.component';
 import { AcceuilfrontComponent } from './front/acceuilfront/acceuilfront.component';
 import { ShowadsbackComponent } from './back/publicity/showadsback/showadsback.component';
+import { MenuFrontComponent } from './front/menu-front/menu-front.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    MenuFrontComponent,
     AddnewsbackComponent,
     ShownewsbackComponent,
     AjoutpartnerbackComponent,
@@ -28,16 +30,16 @@ import { ShowadsbackComponent } from './back/publicity/showadsback/showadsback.c
     ShowadsbackComponent,
     AddrecombackComponent,
     ShowrecombackComponent,
-    AcceuilfrontComponent
+    AcceuilfrontComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [AcceuilService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

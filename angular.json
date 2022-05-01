@@ -1,5 +1,4 @@
 {
-  
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
@@ -23,14 +22,29 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery-3.6.0.min.js",
+              "src/assets/js/bootstrap.bundle.min.js",
+              "src/assets/js/jquery.easing.min.js",
+              "src/assets/js/jquery.appear.js",
+              "src/assets/js/modernizr.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/jquery.nice-select.min.js",
+              "src/assets/js/jquery-ui.min.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/isotope.pkgd.min.js",
+              "src/assets/js/imagesloaded.pkgd.min.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/count-to.js",
+              "src/assets/js/countdown.min.js",
+              "src/assets/js/masonry.pkgd.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -90,19 +104,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.css"],
+            "scripts": [
+              "../node_modules/jquery/dist/jquery.min.js",
+              "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/main.js"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "ateliers",
-  "strictPropertyInitialization": false
+  "defaultProject": "ateliers"
 }
