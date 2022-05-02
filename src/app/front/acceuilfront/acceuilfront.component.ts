@@ -1,4 +1,11 @@
-import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+} from '@angular/core';
+// import {NgxPaginationModule} from 'ngx-pagination';
 declare var $: any;
 // declare function mygay(): any;
 @Component({
@@ -6,10 +13,15 @@ declare var $: any;
   templateUrl: './acceuilfront.component.html',
   styleUrls: ['./acceuilfront.component.css'],
 })
-export class AcceuilfrontComponent implements AfterViewInit {
+// ,AfterViewInit, AfterViewChecked
+export class AcceuilfrontComponent implements OnInit {
   constructor(private elementRef: ElementRef) {}
+  ngAfterViewChecked(): void {
+    throw new Error('Method not implemented.');
+  }
   ngAfterViewInit(): void {
-    // this.addScript('assets/js/main.js');
+    // this.addScript('assets/js/chedli.js');
+    // $.getScript('assets/js/chedli.js');
   }
   addScript(data: string) {
     var s = document.createElement('script');
@@ -17,8 +29,14 @@ export class AcceuilfrontComponent implements AfterViewInit {
     s.src = data;
     this.elementRef.nativeElement.appendChild(s);
   }
+  public loadJsFile(url) {
+    let node = document.createElement('script');
+    node.src = url;
+    node.type = 'text/javascript';
+    document.getElementsByTagName('head')[0].appendChild(node);
+  }
   ngOnInit(): void {
-    // $.getScript('assets/js/main.js');
+    // $.getScript('assets/js/chedli.js');
     // $('.carousel').carousel({
     //   interval: 2000,
     // });
@@ -39,6 +57,6 @@ export class AcceuilfrontComponent implements AfterViewInit {
     // this.addScript('assets/js/countdown.min.js');
     // this.addScript('assets/js/jquery-3.6.0.min.js');
     // this.addScript('assets/js/jesus.js');
-    // mygay();
+    // this.addScript('assets/js/jesus.js');
   }
 }

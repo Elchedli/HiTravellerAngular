@@ -16,7 +16,7 @@ import { ShowrecombackComponent } from './back/recommandation/showrecomback/show
 import { AcceuilfrontComponent } from './front/acceuilfront/acceuilfront.component';
 import { ShowadsbackComponent } from './back/publicity/showadsback/showadsback.component';
 import { MenuFrontComponent } from './front/menu-front/menu-front.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +38,7 @@ import { MenuFrontComponent } from './front/menu-front/menu-front.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPaginationModule,
   ],
   providers: [AcceuilService],
   bootstrap: [AppComponent],
