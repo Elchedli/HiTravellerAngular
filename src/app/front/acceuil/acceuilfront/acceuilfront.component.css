@@ -91,9 +91,28 @@ select.select-wrap {
   margin-top: 50px;
 }
 
-.blog-area > .container {
+.blog-area > .container > .contentblog {
   background: #fff;
   border-radius: 20px;
   padding: 40px 30px;
   box-shadow: 0 3px 24px rgb(0 0 0 / 10%);
+}
+
+/* pagination */
+.arigato {
+  display: table;
+  margin: 0 auto;
+}
+.paginationstyling {
+  margin-top: 90px;
+}
+
+.sheesh .paginationstyling {
+  display: block;
+}
+
+.notexist {
+  margin-top: 50px;
+  display: table;
+  margin: 0 auto;
 }

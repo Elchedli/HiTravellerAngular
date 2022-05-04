@@ -7,23 +7,29 @@ import { AjoutpartnerbackComponent } from './app/back/partner/ajoutpartnerback/a
 import { AddadsbackComponent } from './app/back/publicity/addadsback/addadsback.component';
 import { AddrecombackComponent } from './app/back/recommandation/addrecomback/addrecomback.component';
 import { ShowrecombackComponent } from './app/back/recommandation/showrecomback/showrecomback.component';
-import { AcceuilfrontComponent } from './app/front/acceuilfront/acceuilfront.component';
+import { AcceuilfrontComponent } from './app/front/acceuil/acceuilfront/acceuilfront.component';
 import { ShowadsbackComponent } from './app/back/publicity/showadsback/showadsback.component';
+import { RecomdetailsComponent } from './app/front/acceuil/recomdetails/recomdetails.component';
+import { NewsdetailsComponent } from './app/front/acceuil/newsdetails/newsdetails.component';
+import { AdsdetailsComponent } from './app/front/acceuil/adsdetails/adsdetails.component';
 
- const routes : Routes = [
-  {path:"",redirectTo:"back/news/show",pathMatch:"full"},
-  {path: 'back/news/add',component : AddnewsbackComponent},
-  {path: 'back/news/show',component : ShownewsbackComponent},
-  {path: 'back/partner/add',component : AjoutpartnerbackComponent},
-  {path: 'back/partner/show',component : ListpartnersbackComponent},
-  {path: 'back/ad/show',component : ShowadsbackComponent},
-  {path: 'back/ad/add',component : AddadsbackComponent},
-  {path: 'back/recom/add',component : AddrecombackComponent},
-  {path: 'back/recom/show',component : ShowrecombackComponent},
-  {path:"front/acceuil",component: AcceuilfrontComponent}
+const routes: Routes = [
+  { path: '', redirectTo: 'back/news/show', pathMatch: 'full' },
+  { path: 'back/news/add', component: AddnewsbackComponent },
+  { path: 'back/news/show', component: ShownewsbackComponent },
+  { path: 'back/partner/add', component: AjoutpartnerbackComponent },
+  { path: 'back/partner/show', component: ListpartnersbackComponent },
+  { path: 'back/ad/show', component: ShowadsbackComponent },
+  { path: 'back/ad/add', component: AddadsbackComponent },
+  { path: 'back/recom/add', component: AddrecombackComponent },
+  { path: 'back/recom/show', component: ShowrecombackComponent },
+  { path: 'front/acceuil', component: AcceuilfrontComponent },
+  { path: 'front/acceuil/recom/:id', component: RecomdetailsComponent },
+  { path: 'front/acceuil/news/:id', component: NewsdetailsComponent },
+  { path: 'front/acceuil/ads/:id', component: AdsdetailsComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

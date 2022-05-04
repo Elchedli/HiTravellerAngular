@@ -13,10 +13,13 @@ import { ListpartnersbackComponent } from './back/partner/listpartnersback/listp
 import { AddadsbackComponent } from './back/publicity/addadsback/addadsback.component';
 import { AddrecombackComponent } from './back/recommandation/addrecomback/addrecomback.component';
 import { ShowrecombackComponent } from './back/recommandation/showrecomback/showrecomback.component';
-import { AcceuilfrontComponent } from './front/acceuilfront/acceuilfront.component';
+import { AcceuilfrontComponent } from './front/acceuil/acceuilfront/acceuilfront.component';
 import { ShowadsbackComponent } from './back/publicity/showadsback/showadsback.component';
 import { MenuFrontComponent } from './front/menu-front/menu-front.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { RecomdetailsComponent } from './front/acceuil/recomdetails/recomdetails.component';
+import { NewsdetailsComponent } from './front/acceuil/newsdetails/newsdetails.component';
+import { AdsdetailsComponent } from './front/acceuil/adsdetails/adsdetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +34,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AddrecombackComponent,
     ShowrecombackComponent,
     AcceuilfrontComponent,
+    RecomdetailsComponent,
+    NewsdetailsComponent,
+    AdsdetailsComponent,
   ],
   imports: [
     BrowserModule,
