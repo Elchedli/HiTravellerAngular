@@ -1,0 +1,16 @@
+<div class="col-md-4" *ngFor="let post of postList , let i = index ">
+    
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h4>Post {{post.id}}:</h4>
+                <h5 class="card-title">Title :{{post.title}}</h5>
+                <p class="card-text">Contenu :{{post.description}}</p>
+
+                <!-- <button class="btn btn-danger" (click)="deleteProductId(product.id)" >
+                        Delete</button> -->
+                        <button  (click)="deletePost(post.id)">
+                            Delete</button>
+            </div>
+        </div>
+    
+</div>

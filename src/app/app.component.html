@@ -1,0 +1,41 @@
+<!--<div *ngIf="(router.url.indexOf('/voyage')>-1 || router.url=='/voyage')">
+<app-menu></app-menu>
+
+</div>-->
+
+<div *ngIf="(router.url==='/' || router.url==='/trips' || router.url.indexOf('/detailsTrip')>-1)">
+
+    <app-menu-front></app-menu-front>
+        
+    </div>
+
+<div *ngIf="(router.url.indexOf('/detailsTrip')>-1)">
+
+    <app-menu-front></app-menu-front>
+            
+    </div>
+    <div *ngIf="(router.url==='/getcompanytrips')">
+
+        <app-menu-front></app-menu-front>
+                
+        </div>
+        <div *ngIf="(router.url==='/addFront')">
+
+            <app-menu-front></app-menu-front>
+                    
+            </div>
+
+                <div *ngIf="(router.url.indexOf('/listEmployee')>-1)">
+
+                    <app-menu-front></app-menu-front>
+                            
+                    </div>
+            
+<div *ngIf="(router.url.indexOf('/voyage')>-1) || router.url=='/add'">
+    <app-menu></app-menu>
+    
+    </div>
+    
+
+
+    

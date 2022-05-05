@@ -1,0 +1,98 @@
+<main class="main">
+
+
+    <div class="site-breadcrumb" style="background: url(../../../assetsf/img/bg/breadcrumb.jpg)">
+        <div class="container">
+        <h2 class="breadcrumb-title">Trips</h2>
+        <ul class="breadcrumb-menu">
+        <li><a href="index-2.html">Home</a></li>
+        <li class="active">Trips</li>
+        </ul>
+        </div>
+        </div>
+
+
+
+<div class="room-single py-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="room-details">
+
+                    <div class="widget-title">
+                        <div class="room-details-info">
+                            <a href="#">
+                                <h3>{{voyage.subject}}</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-details-img mb-30">
+                        <img src={{path+voyage.imageName}} alt="thumb">
+                         </div>
+
+                    <div class="room-description">
+                        <h4>Program Of The Trip</h4>
+                        <p>
+                            {{voyage.program}}
+                        </p>
+                    
+                    </div>
+                    
+                    
+                </div>
+            </div>
+                    <div class="col-lg-4">
+                        <div class="room-sidebar">
+                            <div class="room-details-info">
+                                <br> <br>
+
+                                <div class="widget event-single-info">
+                                    
+                                    
+                                <h4 class="widget-title">Trip Information</h4>
+                                <p> 
+                                   Domain of the Trip : <strong>{{voyage.domain}}</strong>
+                                </p>
+                                <div class="room-details-info">
+                                    <div class="event-content-single">
+                                        <h5><a>Departure Date </a></h5>
+                                        <p><i class="far fa-calendar-alt"></i> {{voyage.departureDate}} </p>
+                                    </div>
+                                    <div class="event-content-single">
+                                        <h5><a >Arrival Date</a></h5>
+                                        <p><i class="far fa-calendar-alt"></i> {{voyage.arrivelDate}}</p>
+                                    </div>
+                                    <div class="event-content-single">
+                                        <h5><a >Event Location</a></h5>
+                                        <p><i class="far fa-map-marker-alt"></i> {{voyage.destination}}</p>
+                                    </div>
+                                    <div class="event-content-single">
+                                        <h5><a>Period</a></h5>
+                                        <p>
+                                        <li><i class="far fa-bed"></i>{{voyage.periode}} Days</li>
+                                        </p>
+                                    </div>
+                                    <div class="event-content-single">
+                                        <h5><a >Event Cost</a></h5>
+                                        <p><i class="far fa-usd-circle"></i> 150</p>
+                                    </div>
+
+                                    <a (click)=addEmployeeToVoyage() href="/trips" class="theme-btn mt-4">Book Now <i class="far fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="widget event-author">
+                                <h4 class="widget-title">Trip Organizer</h4>
+                                <div class="event-author-info">
+                                <h5>{{voyage.entreprise.username}}</h5>
+                                <p>email: {{voyage.entreprise.email}}</p>
+                                </div>
+                                </div>
+ 
+                    
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>
+</main>

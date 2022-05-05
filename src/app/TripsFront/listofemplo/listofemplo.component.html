@@ -1,0 +1,105 @@
+<main class="main">
+
+    <div class="site-breadcrumb" style="background: url(../../../assetsf/img/bg/breadcrumb.jpg)">
+            <div class="container">
+            <h2 class="breadcrumb-title">Trips</h2>
+            <ul class="breadcrumb-menu">
+            <li><a href="index-2.html">Home</a></li>
+            <li class="active">Trips</li>
+            </ul>
+            </div>
+            </div>
+
+
+<div class="container" style="margin-top:100px">
+    <form #f="ngForm"  method="post">
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-sm-100">
+             
+                    <div class="col-sm-12">
+                        <h4 class="card-title">User</h4>
+                        <p class="card-subtitle mb-4">
+                            Here you can find all the users Going to this trip and their details.
+                        </p>
+
+                        <div id="state-saving-datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+                         <!--  <div class="col-sm-12 col-md-6">
+                                    <button (click)="pdf()"class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0"
+                                        aria-controls="datatable-buttons" type="button"><span>Get the BalenceSheet Of all the trips (PDF)</span></button>
+                            </div>--> 
+                            <div class="row">
+
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length" id="state-saving-datatable_length"><label>Show
+                                            <select name="state-saving-datatable_length"
+                                                aria-controls="state-saving-datatable"
+                                                class="custom-select custom-select-sm form-control form-control-sm">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> entries</label></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div id="basic-datatable_filter" class="dataTables_filter">
+                                        <label>Search:<input type="search" class="form-control form-control-sm"
+                                                placeholder="" aria-controls="state-saving-datatable"></label>
+                                    </div>
+                                </div>
+                                
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table id="state-saving-datatable"
+                                        class="table activate-select dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+                                        role="grid" aria-describedby="state-saving-datatable_info"
+                                        style="width: 1193px;">
+                                        <thead>
+                                            <tr role="row">
+                                                <th class="sorting_asc" tabindex="0"
+                                                    aria-controls="state-saving-datatable" rowspan="1" colspan="1"
+                                                    style="width: 70px;" aria-sort="ascending"
+                                                    aria-label="Name: activate to sort column descending">UserName
+                                                </th>
+                                                <th class="sorting_asc" tabindex="0"
+                                                aria-controls="state-saving-datatable" rowspan="1" colspan="1"
+                                                style="width: 70px;" aria-sort="ascending"
+                                                aria-label="Name: activate to sort column descending">Email
+                                            </th>
+                                                
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr *ngFor="let user of listUser">
+
+                                                <td>{{user.username}}</td>
+                                                <td>{{user.email}}</td>
+                                        </tbody>
+                                    </table>
+                                    &nbsp;
+                                    &nbsp;
+                                    &nbsp;
+
+                                </div>
+                            </div>
+                           
+                            &nbsp;
+                            &nbsp;
+
+                        </div>
+
+                    </div> <!-- end card body-->
+         
+            </div><!-- end col-->
+        </div>
+
+    </div>
+    
+
+</div>
+</form></div>
+  &nbsp;
+  &nbsp;
+</main>

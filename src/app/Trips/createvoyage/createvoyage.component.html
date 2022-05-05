@@ -1,0 +1,93 @@
+  
+<div class="col-md-6 offset-md-3">
+    <h3>Create Voyage</h3>
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label> destination</label>
+        <input
+          type="text"
+          class="form-control"
+          id="username"
+          [(ngModel)]="voyage.destination"
+          name="destination"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label> departureDate</label>
+        <input
+          type="date"
+          class="form-control"
+          id="departureDate"
+          [(ngModel)]="voyage.departureDate"
+          name="departureDate"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label> arrivelDate</label>
+        <input
+          type="date"
+          class="form-control"
+          id="arrivelDate"
+          [(ngModel)]="voyage.arrivelDate"
+          name="arrivelDate"
+        />
+      </div>
+      <div class="form-group">
+        <label> periode</label>
+        <input
+          type="number"
+          class="form-control"
+          id="periode"
+          [(ngModel)]="voyage.periode"
+          name="periode"
+        />
+      </div>
+      <div class="form-group">
+        <label> subject</label>
+        <input
+          type="text"
+          class="form-control"
+          id="subject"
+          [(ngModel)]="voyage.subject"
+          name="subject"
+        />
+      </div>
+      <div class="form-group">
+        <label> program</label>
+        <input
+          type="text"
+          class="form-control"
+          id="program"
+          [(ngModel)]="voyage.program"
+          name="program"
+        />
+      </div>
+      <div class="form-group">
+        <label> price</label>
+        <input
+          type="number"
+          class="form-control"
+          id="price"
+          [(ngModel)]="voyage.price"
+          name="price"
+        />
+      </div>
+      <div class="form-group">
+        <label> domain</label>
+        <input
+          type="text"
+          class="form-control"
+          id="domain"
+          [(ngModel)]="voyage.domain"
+          name="domain"
+        />
+      </div>
+      <div class="form-group">
+        <input type="file" (change)="onImageUpload($event)">
+        <input type="button" (click)="imageUploadAction()" value="Upload Image" class="btn1">
+    </div>
+      <button class="btn btn-success" type="submit" >Submit</button>
+    </form>
+  </div>

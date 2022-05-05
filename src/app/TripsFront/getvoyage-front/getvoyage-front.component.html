@@ -1,0 +1,114 @@
+   
+
+
+
+    <main class="main">
+
+        <div class="site-breadcrumb" style="background: url(../../../assetsf/img/bg/breadcrumb.jpg)">
+        <div class="container">
+        <h2 class="breadcrumb-title">Trips</h2>
+        <ul class="breadcrumb-menu">
+        <li><a href="index-2.html">Home</a></li>
+        <li class="active">All Our Trips</li>
+        </ul>
+        </div>
+        </div>
+        
+        
+        <div class="blog-single-area pt-120 pb-120">
+        <div class="container">
+        <div class="row" >
+            <div class="col-lg-8" >
+                <div class="row" >
+                    
+            <form  #f="ngForm"  method="post">
+            
+            <div class="col-md-4" style="display:inline-block;" *ngFor="let voyage of listVoyage" >
+            <div class="blog-item" style="display:inline-block;"  >
+            <div class="blog-item-thumb">
+                
+                    <img class="" src={{path+voyage.imageName}} alt="Thumb" style="height:200px!important;width:200px!important;">
+            </div>
+            <div class="blog-item-info" >
+            <div class="blog-item-meta">
+            <ul>
+            <li><i class="far fa-user"></i> {{voyage.entreprise.username}}</li>
+            <li><i class="far fa-calendar-alt"></i> {{voyage.departureDate}}</li>
+            </ul>
+            <span class="event-address"><i class="far fa-map-marker-alt"></i> {{voyage.destination}}</span>
+            </div>
+            <h5><a (click)="details(voyage.idVoyage)" class="blog-item-title" href="http://localhost:4200/detailsTrip/{{voyage.idVoyage}}">{{voyage.subject}}</a></h5>
+            
+            <p>
+                {{voyage.program}}
+            </p>
+            <a (click)="details(voyage.idVoyage)" class="blog-item-more" href="http://localhost:4200/detailsTrip/{{voyage.idVoyage}}">Read More <i class="far fa-long-arrow-right"></i></a>
+            </div>
+            </div>
+            </div>
+        
+        </form>
+        </div>
+            </div>
+        <div class="col-lg-4">
+        <aside class="sidebar">
+        
+        <div class="widget search">
+        <h5 class="widget-title">Search By Destination</h5>
+        <form class="search-form">
+        <input type="text" class="form-control" placeholder="Search Here..." id="destination" name="destination" #destination>
+        <button type="submit" (click)="search(destination.value)"><i class="far fa-search"></i></button>
+        </form>
+        </div>
+        
+        
+        <div class="widget recent-post">
+        <h5 class="widget-title">Suggestion</h5>
+        <div class="recent-post-single">
+        <div class="recent-post-img">
+        <img src="../../../assetsf/img/blog/bs-1.jpg" alt="thumb">
+        </div>
+        <div class="recent-post-bio">
+        <h6><a href="#">It is a long established fact that a reader</a></h6>
+        <span><i class="far fa-clock"></i>25 July, 2021</span>
+        </div>
+        </div>
+        <div class="recent-post-single">
+        <div class="recent-post-img">
+        <img src="assets/img/blog/bs-2.jpg" alt="thumb">
+        </div>
+        <div class="recent-post-bio">
+        <h6><a href="#">It is a long established fact that a reader</a></h6>
+        <span><i class="far fa-clock"></i>25 July, 2021</span>
+        </div>
+        </div>
+        <div class="recent-post-single">
+        <div class="recent-post-img">
+        <img src="assets/img/blog/bs-3.jpg" alt="thumb">
+        </div>
+        <div class="recent-post-bio">
+        <h6><a href="#">It is a long established fact that a reader</a></h6>
+        <span><i class="far fa-clock"></i>25 July, 2021</span>
+        </div>
+        </div>
+        </div>
+        
+        <div class="widget social-share">
+        <h5 class="widget-title">Follow Us</h5>
+        <div class="social-share-link">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-dribbble"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        </div>
+ 
+        </aside>
+        </div>
+        </div>
+        </div>
+        </div>
+
+        
+        </main>

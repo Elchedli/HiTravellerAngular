@@ -1,0 +1,48 @@
+
+<h3>update Voyage</h3>
+<div style="width: 400px;">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">destination</label>
+      <input type="text" class="form-control" id="destination" required [(ngModel)]="voyage.destination" name="destination">
+    </div>
+
+    <div class="form-group">
+      <label for="name">departureDate</label>
+      <input type="date" class="form-control" id="departureDate" required [(ngModel)]="voyage.departureDate" name="departureDate">
+    </div>
+
+    <div class="form-group">
+      <label for="name">arrivelDate</label>
+      <input type="date" class="form-control" id="arrivelDate" required [(ngModel)]="voyage.arrivelDate" name="arrivelDate">
+    </div>
+
+    <div class="form-group">
+        <label for="name">periode</label>
+        <input type="number" class="form-control" id="periode" required [(ngModel)]="voyage.periode" name="periode">
+      </div>
+
+      <div class="form-group">
+        <label for="name">subject</label>
+        <input type="text" class="form-control" id="subject" required [(ngModel)]="voyage.subject" name="subject">
+      </div>
+
+      <div class="form-group">
+        <label for="name">domain</label>
+        <input type="text" class="form-control" id="domain" required [(ngModel)]="voyage.domain" name="domain">
+      </div>
+
+      <div class="form-group">
+        <label for="name">program</label>
+        <input type="text" class="form-control" id="program" required [(ngModel)]="voyage.program" name="program">
+      </div>
+
+      <div class="form-group">
+        <label for="name">price</label>
+        <input type="number" class="form-control" id="price" required [(ngModel)]="voyage.price" name="price">
+      </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+

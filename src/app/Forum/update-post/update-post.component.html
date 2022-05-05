@@ -1,0 +1,27 @@
+<h2>Update Post</h2>
+
+
+<form #f="ngForm">
+  <!--  <div>
+        <label>Id:</label>
+        <input #id="ngModel" type="number" name="id" class="form-control" [(ngModel)]="post.id" required>
+        
+    </div>--> 
+    <input type="text" ng-model="selectedCountry">
+    <select class="form-control" 
+      ng-model="selectedCountry" 
+      ng-options="post.id as post.title for post in postList">
+  <option value="">Select Country</option>
+  </select>
+
+    <div>
+        <label>Title</label>
+        <input #title="ngModel" type="text" name="title" class="form-control" [(ngModel)]="post.title" required>
+    </div>
+
+    <div>
+        <label>Description</label>
+        <input #title="ngModel" type="text" name="description" class="form-control" [(ngModel)]="post.description" required>
+    </div>
+    <button  (click)="addPost(post)">Add post</button>
+</form>

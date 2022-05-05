@@ -1,0 +1,92 @@
+<main class="main">
+
+    <div class="site-breadcrumb" style="background: url(../../../assetsf/img/bg/breadcrumb.jpg)">
+            <div class="container">
+            <h2 class="breadcrumb-title">Trips</h2>
+            <ul class="breadcrumb-menu">
+            <li><a href="index-2.html">Home</a></li>
+            <li class="active">Trips</li>
+            </ul>
+            </div>
+            </div>
+
+
+
+
+<div class="event-area py-120" >
+<div class="container">
+<div class="row">
+<div class="col-12 mx-auto" style="left: -200px;
+width: 700px;">
+<div class="site-heading" >
+<span class="site-title-tagline">Our Trips</span>
+<h2 class="site-title">Latest trips we have</h2>
+<p>
+These are the Trips you have.
+you can always update them and also see the list of the employees going to that specific trip<br>
+</p>
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+
+
+    
+  
+    
+<div class="event-area py-120" style="margin-top:-220px" >
+    <div class="container">
+    <div class="row">
+    <div class="col-12" *ngFor="let voyage of listVoyage2">
+    <div class="event-item">
+    <div class="row g-0 align-items-center">
+    <div class="col-md-4">
+    <div class="event-img">
+    <img src={{path+voyage.imageName}} alt="Coudn't diplay the image">
+    </div>
+    </div>
+    <div class="col-md-8">
+    <div class="event-content">
+    <span class="event-date"><i class="far fa-calendar-alt"></i> From {{voyage.departureDate}} To {{voyage.arrivelDate}}</span>
+    <h4 class="event-title">{{voyage.subject}}</h4>
+    <span class="event-address"><i class="far fa-map-marker-alt"></i>{{voyage.destination}}</span>
+    <p>
+    To be able to update/delete this trip please hit the details button. 
+    </p>
+    <a  href="http://localhost:4200/listEmployee/{{voyage.idVoyage}}" class="theme-btn">List of Employees  <i class="far fa-arrow-right"></i></a>
+    &nbsp;
+    <a href="#" class="theme-btn">Details of the Trip &emsp;<i class="far fa-arrow-right"></i></a>
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-6 mx-auto" style="position: absolute;
+    margin-top:-250px;
+        right: 150px;
+        width: 300px;
+        height: 100px;
+        ">
+        <div class="service-sidebar">
+        <div class="widget service-download">
+        <h4 class="widget-title">Download</h4>
+        <a (click)=pdf() href="/getcompanytrips"><i class="far fa-file-pdf" ></i> Balence sheet OF THE COMPANY</a>
+
+        </div>
+        </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+
+
+</main>
+

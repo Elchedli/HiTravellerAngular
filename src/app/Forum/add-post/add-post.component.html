@@ -1,0 +1,16 @@
+<h2>Add Post</h2>
+
+
+<form #f="ngForm">
+  
+    <div>
+        <label>Title</label>
+        <input #title="ngModel" type="text" name="title" class="form-control" [(ngModel)]="post.title" required>
+    </div>
+
+    <div>
+        <label>Description</label>
+        <input #title="ngModel" type="text" name="description" class="form-control" [(ngModel)]="post.description" required>
+    </div>
+    <button  (click)="addPost(post)">Add post</button>
+</form>
