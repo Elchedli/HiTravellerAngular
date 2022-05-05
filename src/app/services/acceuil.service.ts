@@ -108,6 +108,12 @@ export class AcceuilService {
     );
   }
 
+  public recomGet(id: number) {
+    return this.http.get(
+      'http://localhost:8083/voyageAffaires/acceuil/getRecom/' + id
+    );
+  }
+
   public recomdelete(id: number) {
     return this.http.get(
       'http://localhost:8083/voyageAffaires/acceuil/DeleteRecom/' + id,

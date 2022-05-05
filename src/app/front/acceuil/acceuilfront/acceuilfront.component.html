@@ -1062,9 +1062,9 @@
                   <div class="room-item">
                     <div class="room-img">
                       <img src="assets/img/room/room-1.jpg" alt="" />
-                      <a href="#" class="room-wish"
+                      <!-- <a href="#" class="room-wish"
                         ><i class="fas fa-heart"></i
-                      ></a>
+                      ></a> -->
                     </div>
                     <div class="room-content">
                       <div class="room-title">
@@ -1079,7 +1079,10 @@
                           <i class="fas fa-star"></i>
                         </div>
                       </div>
-                      <div class="room-service">
+                      <div
+                        class="room-service"
+                        [hidden]="categorieRecom != 'Hotel'"
+                      >
                         <ul>
                           <li><i class="fas fa-bed"></i>3 Beds</li>
                           <li><i class="fas fa-bath"></i>2 Baths</li>
@@ -1502,73 +1505,6 @@
     </div>
   </div> -->
 
-  <div class="service-area">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mx-auto">
-          <div class="site-heading text-center">
-            <span class="site-title-tagline">Services</span>
-            <h2 class="site-title">Best Services</h2>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6 col-lg-4">
-          <div class="service-item">
-            <div class="service-img">
-              <img src="assets/img/service/service-1.jpg" alt="" />
-            </div>
-            <div class="service-content">
-              <h4>Restaurant</h4>
-              <p>
-                There are many variations of passages of orem psum available.
-              </p>
-              <a href="#" class="theme-btn"
-                >Learn More <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-item">
-            <div class="service-img">
-              <img src="assets/img/service/service-2.jpg" alt="" />
-            </div>
-            <div class="service-content">
-              <h4>Fiteness</h4>
-              <p>
-                There are many variations of passages of orem psum available.
-              </p>
-              <a href="#" class="theme-btn"
-                >Learn More <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="service-item">
-            <div class="service-img">
-              <img src="assets/img/service/service-3.jpg" alt="" />
-            </div>
-            <div class="service-content">
-              <h4>Swimming Pool</h4>
-              <p>
-                There are many variations of passages of orem psum available.
-              </p>
-              <a href="#" class="theme-btn"
-                >Learn More <i class="fas fa-arrow-right"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="testimonial-area testimonial-bg py-120 mt-100">
     <div class="container">
       <div class="row">
@@ -1970,54 +1906,6 @@
             </div>
             <div
               class="owl-item active"
-              style="width: 172.667px; margin-right: 25px"
-            >
-              <div class="partner-item">
-                <img src="assets/img/partner/6.png" alt="thumb" />
-              </div>
-            </div>
-            <div
-              class="owl-item cloned active"
-              style="width: 172.667px; margin-right: 25px"
-            >
-              <div class="partner-item">
-                <img src="assets/img/partner/1.png" alt="thumb" />
-              </div>
-            </div>
-            <div
-              class="owl-item cloned active"
-              style="width: 172.667px; margin-right: 25px"
-            >
-              <div class="partner-item">
-                <img src="assets/img/partner/2.png" alt="thumb" />
-              </div>
-            </div>
-            <div
-              class="owl-item cloned"
-              style="width: 172.667px; margin-right: 25px"
-            >
-              <div class="partner-item">
-                <img src="assets/img/partner/3.png" alt="thumb" />
-              </div>
-            </div>
-            <div
-              class="owl-item cloned"
-              style="width: 172.667px; margin-right: 25px"
-            >
-              <div class="partner-item">
-                <img src="assets/img/partner/4.png" alt="thumb" />
-              </div>
-            </div>
-            <div
-              class="owl-item cloned"
-              style="width: 172.667px; margin-right: 25px"
-            >
-              <div class="partner-item">
-                <img src="assets/img/partner/5.png" alt="thumb" />
-              </div>
-            </div>
-            <div
-              class="owl-item cloned"
               style="width: 172.667px; margin-right: 25px"
             >
               <div class="partner-item">

@@ -20,6 +20,10 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { RecomdetailsComponent } from './front/acceuil/recomdetails/recomdetails.component';
 import { NewsdetailsComponent } from './front/acceuil/newsdetails/newsdetails.component';
 import { AdsdetailsComponent } from './front/acceuil/adsdetails/adsdetails.component';
+import { ChartsModule } from 'ng2-charts';
+import { ModifyrecombackComponent } from './back/recommandation/modifyrecomback/modifyrecomback.component';
+import { ChatclassiqueComponent } from './front/messagerie/chatclassique/chatclassique.component';
+import { ChoixmessagerieComponent } from './front/messagerie/choixmessagerie/choixmessagerie.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +41,9 @@ import { AdsdetailsComponent } from './front/acceuil/adsdetails/adsdetails.compo
     RecomdetailsComponent,
     NewsdetailsComponent,
     AdsdetailsComponent,
+    ModifyrecombackComponent,
+    ChatclassiqueComponent,
+    ChoixmessagerieComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +52,7 @@ import { AdsdetailsComponent } from './front/acceuil/adsdetails/adsdetails.compo
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    ChartsModule,
   ],
   providers: [AcceuilService],
   bootstrap: [AppComponent],

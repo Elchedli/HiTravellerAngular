@@ -40,41 +40,7 @@
   >Add</a
 >
 
-<!-- <table border="2 ">
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Image</th>
-        <th>Country</th>
-        <th>Rating</th>
-        <th>price</th>
-    </tr>
-    <tbody *ngFor="let p of listrecom; let i=index ">
-        <tr>
-            <td>{{p.titreRecom}}</td>
-            <td>{{p.imageRecom}}</td>
-            <td>{{p.description}}</td>
-            <td>{{p.country}}</td>
-            <td>{{p.recomAvis}}</td>
-            <td>{{p.price}}</td>
-        </tr>
-    </tbody>
-</table> -->
-
 <div class="row">
-  <!-- <div class="col-md-6 col-xl-3 ">
-        <div class="card ">
-            <img class="card-img-top img-fluid " src="assets/images/media/sm-1.jpg " alt="Card image cap ">
-            <div class="card-body ">
-                <h5 class="card-title ">Card title</h5>
-                <p class="card-text ">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="# " class="btn btn-primary waves-effect waves-light ">Button</a>
-            </div>
-        </div>
-
-    </div> -->
-  <!-- end col -->
-
   <div class="row">
     <div class="col-md-6 col-xl-3" *ngFor="let p of listrecom; let i = index">
       <!-- Simple card -->
@@ -100,12 +66,12 @@
           >
             Delete
           </button>
-          <button
+          <a
+            routerLink="../modify/{{ p.idrecom }}"
             class="btn btn-success waves-effect waves-light"
             style="margin-right: 10px"
+            >Modify</a
           >
-            Modify
-          </button>
         </div>
       </div>
     </div>

@@ -12,6 +12,8 @@ import { ShowadsbackComponent } from './app/back/publicity/showadsback/showadsba
 import { RecomdetailsComponent } from './app/front/acceuil/recomdetails/recomdetails.component';
 import { NewsdetailsComponent } from './app/front/acceuil/newsdetails/newsdetails.component';
 import { AdsdetailsComponent } from './app/front/acceuil/adsdetails/adsdetails.component';
+import { ModifyrecombackComponent } from './app/back/recommandation/modifyrecomback/modifyrecomback.component';
+import { ChoixmessagerieComponent } from './app/front/messagerie/choixmessagerie/choixmessagerie.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'back/news/show', pathMatch: 'full' },
@@ -22,11 +24,13 @@ const routes: Routes = [
   { path: 'back/ad/show', component: ShowadsbackComponent },
   { path: 'back/ad/add', component: AddadsbackComponent },
   { path: 'back/recom/add', component: AddrecombackComponent },
+  { path: 'back/recom/modify/:id', component: ModifyrecombackComponent },
   { path: 'back/recom/show', component: ShowrecombackComponent },
   { path: 'front/acceuil', component: AcceuilfrontComponent },
   { path: 'front/acceuil/recom/:id', component: RecomdetailsComponent },
   { path: 'front/acceuil/news/:id', component: NewsdetailsComponent },
   { path: 'front/acceuil/ads/:id', component: AdsdetailsComponent },
+  { path: 'front/messagerie/choice', component: ChoixmessagerieComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

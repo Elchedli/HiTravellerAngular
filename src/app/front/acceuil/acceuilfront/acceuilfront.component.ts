@@ -29,12 +29,15 @@ export class AcceuilfrontComponent implements OnInit {
   listarticle: any;
   regionArticle: string = 'International';
   newslimiter: number = 3;
+  //PARTNER
+  listpart: any;
 
   constructor(private service: AcceuilService) {}
   ngOnInit(): void {
     this.listeRecom();
     this.listAd();
     this.listnewsregion();
+    this.allPart();
   }
 
   public listeRecom() {
@@ -91,5 +94,13 @@ export class AcceuilfrontComponent implements OnInit {
 
   public moreNews() {
     this.newslimiter += 3;
+  }
+
+  public allPart() {
+    let resp = this.service.afficherpartner();
+    resp.subscribe((datas) => {
+      this.listpart = datas;
+      console.log(datas);
+    });
   }
 }

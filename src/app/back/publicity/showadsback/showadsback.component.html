@@ -29,62 +29,106 @@
     </tbody>
 </table> -->
 
-<h2 class="label" style="margin-bottom: 30px;">
-    Ads Configuration
-</h2>
+<h2 class="label" style="margin-bottom: 30px">Ads Configuration</h2>
 <div class="row">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-body">
-                <select class="form-control col-md-3" data-toggle="select2" [(ngModel)]="region" style="display: inline-block;">
-                    <option value="Global">Global</option>
-                    <option value="Nationnal">Nationnal</option>
-                </select>
-                <select class="form-control col-md-3" data-toggle="select2" [(ngModel)]="type" style="display: inline-block;">
-                    <option value="Remise">Remise</option>
-                    <option value="Forfait">Forfait</option>
-                </select>
-                <div [hidden]="region == 'Global'" style="display: inline-block;margin-left: 20px;">
-                    <input type="text" placeholder="Country" name="region" [(ngModel)]="place">
-                </div>
-                <button type="button" class="btn btn-outline-primary waves-effect waves-light" (click)="listAd()" style="margin-left: 20px;">Search</button>
-                <!-- <button (click)="listAd()">Search</button> -->
-                <a routerLink="/back/ad/add" class="btn btn-success waves-effect waves-light" style="float:right;margin-left: 10px;">Add</a>
-
-
-                <table id="datatable-buttons" class="table table-striped dt-responsive nowrap" style="margin-top: 20px;">
-                    <thead>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Image</th>
-                        <th>Published</th>
-                        <th>Delete</th>
-                    </thead>
-
-
-                    <tbody *ngFor="let p of listpub; let i=index">
-                        <tr>
-                            <td>{{p.titrePub}}</td>
-                            <td>{{p.descriptionPub}}</td>
-                            <td>{{p.imagePub}}</td>
-                            <td>{{p.publishedago}}</td>
-                            <td><button (click)="effacerAd(p.idPub)">Delete</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
-            <!-- end card body-->
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <select
+          class="form-control col-md-3"
+          data-toggle="select2"
+          [(ngModel)]="region"
+          style="display: inline-block; margin-right: 20px"
+        >
+          <option value="Global">Global</option>
+          <option value="Nationnal">Nationnal</option>
+        </select>
+        <select
+          class="form-control col-md-3"
+          data-toggle="select2"
+          [(ngModel)]="type"
+          style="display: inline-block"
+        >
+          <option value="Remise">Remise</option>
+          <option value="Forfait">Forfait</option>
+        </select>
+        <div
+          [hidden]="region == 'Global'"
+          style="display: inline-block; margin-left: 20px"
+        >
+          <input
+            type="text"
+            placeholder="Country"
+            name="region"
+            [(ngModel)]="place"
+          />
         </div>
-        <!-- end card -->
+
+        <button
+          type="button"
+          class="btn btn-outline-primary waves-effect waves-light"
+          (click)="listAd()"
+          style="margin-left: 20px"
+        >
+          Search
+        </button>
+        <!-- <button (click)="listAd()">Search</button> -->
+        <a
+          routerLink="/back/ad/add"
+          class="btn btn-success waves-effect waves-light"
+          style="float: right; margin-left: 10px"
+          >Add</a
+        >
+
+        <table
+          id="datatable-buttons"
+          class="table table-striped dt-responsive nowrap"
+          style="margin-top: 20px"
+        >
+          <thead>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Published</th>
+            <th>Country</th>
+            <th>Offer</th>
+            <th>Delete</th>
+          </thead>
+
+          <tbody *ngFor="let p of listpub; let i = index">
+            <tr>
+              <td>{{ p.titrePub }}</td>
+              <td>{{ p.descriptionPub }}</td>
+              <td><img src="{{ p.imagePub }}" style="width: 60px" /></td>
+              <td>{{ p.publishedago }}</td>
+              <td>{{ p.country }}</td>
+              <td>{{ p.pubType }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger waves-effect waves-light"
+                  (click)="effacerAd(p.idPub)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end card body-->
     </div>
-    <!-- end col-->
+    <!-- end card -->
+  </div>
+  <!-- end col-->
 </div>
 <!-- end row-->
 
-
-<h2 style="display:table;margin: 0 auto;">Stats</h2>
-<p *ngFor="let stat of stats; let i=index">
-    country : {{stat[1]}} total : {{stat[0]}} percentage : {{stat[2]}}%
-    <!-- {{stat[0]}} -->
+<h2 style="display: table; margin: 0 auto; margin-bottom: 50px">Stats</h2>
+<p *ngFor="let stat of stats; let i = index">
+  country : {{ stat[1] }} total : {{ stat[0] }} percentage : {{ stat[2] }}%
 </p>
+
+<div>
+  <canvas id="myChart"></canvas>
+</div>
