@@ -14,6 +14,8 @@ import { NewsdetailsComponent } from './app/front/acceuil/newsdetails/newsdetail
 import { AdsdetailsComponent } from './app/front/acceuil/adsdetails/adsdetails.component';
 import { ModifyrecombackComponent } from './app/back/recommandation/modifyrecomback/modifyrecomback.component';
 import { ChoixmessagerieComponent } from './app/front/messagerie/choixmessagerie/choixmessagerie.component';
+import { ChatcomplexeComponent } from './app/front/messagerie/chatcomplexe/chatcomplexe.component';
+import { TestmenuComponent } from './app/front/testmenu/testmenu.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'back/news/show', pathMatch: 'full' },
@@ -31,6 +33,11 @@ const routes: Routes = [
   { path: 'front/acceuil/news/:id', component: NewsdetailsComponent },
   { path: 'front/acceuil/ads/:id', component: AdsdetailsComponent },
   { path: 'front/messagerie/choice', component: ChoixmessagerieComponent },
+  {
+    path: 'front/messagerie/choice/complexe',
+    component: ChatcomplexeComponent,
+  },
+  { path: 'front/test', component: TestmenuComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

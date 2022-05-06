@@ -22,8 +22,9 @@ import { NewsdetailsComponent } from './front/acceuil/newsdetails/newsdetails.co
 import { AdsdetailsComponent } from './front/acceuil/adsdetails/adsdetails.component';
 import { ChartsModule } from 'ng2-charts';
 import { ModifyrecombackComponent } from './back/recommandation/modifyrecomback/modifyrecomback.component';
-import { ChatclassiqueComponent } from './front/messagerie/chatclassique/chatclassique.component';
 import { ChoixmessagerieComponent } from './front/messagerie/choixmessagerie/choixmessagerie.component';
+import { ChatcomplexeComponent } from './front/messagerie/chatcomplexe/chatcomplexe.component';
+import { TestmenuComponent } from './front/testmenu/testmenu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +43,9 @@ import { ChoixmessagerieComponent } from './front/messagerie/choixmessagerie/cho
     NewsdetailsComponent,
     AdsdetailsComponent,
     ModifyrecombackComponent,
-    ChatclassiqueComponent,
     ChoixmessagerieComponent,
+    ChatcomplexeComponent,
+    TestmenuComponent,
   ],
   imports: [
     BrowserModule,
