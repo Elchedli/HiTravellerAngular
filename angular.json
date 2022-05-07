@@ -1,119 +1,131 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "ateliers": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/ateliers",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "node_modules/animate.css/animate.css"
-            ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/bootstrap.bundle.min.js",
-              "src/assets/js/jquery.easing.min.js",
-              "src/assets/js/jquery.appear.js",
-              "src/assets/js/modernizr.min.js",
-              "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/jquery.nice-select.min.js",
-              "src/assets/js/jquery-ui.min.js",
-              "src/assets/js/jquery.magnific-popup.min.js",
-              "src/assets/js/isotope.pkgd.min.js",
-              "src/assets/js/imagesloaded.pkgd.min.js",
-              "src/assets/js/wow.min.js",
-              "src/assets/js/count-to.js",
-              "src/assets/js/countdown.min.js",
-              "src/assets/js/masonry.pkgd.min.js",
-              "src/assets/js/main.js",
-              "node_modules/wowjs/dist/wow.js"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "ateliers": {
+            "projectType": "application",
+            "schematics": {
+                "@schematics/angular:application": {
+                    "strict": true
+                }
+            },
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/ateliers",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "assets": ["src/favicon.ico", "src/assets"],
+                        "styles": [
+                            "src/styles.css",
+                            "node_modules/@fortawesome/fontawesome-free/css/all.css",
+                            "node_modules/animate.css/animate.css",
+                            "src/assets/plugins/datatables/buttons.bootstrap4.css",
+                            "src/assets/plugins/datatables/select.bootstrap4.css",
+                            "src/assets/plugins/datatables/dataTables.bootstrap4.css",
+                            "src/assets/plugins/datatables/responsive.bootstrap4.css",
+                            "src/assets/css/icons.min.css",
+                            "src/assets/css/theme.min.css"
+                        ],
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "node_modules/bootstrap/dist/js/bootstrap.min.js",
+                            "src/assets/js/bootstrap.bundle.min.js",
+                            "src/assets/js/jquery.easing.min.js",
+                            "src/assets/js/jquery.appear.js",
+                            "src/assets/js/modernizr.min.js",
+                            "src/assets/js/owl.carousel.min.js",
+                            "src/assets/js/jquery.nice-select.min.js",
+                            "src/assets/js/jquery-ui.min.js",
+                            "src/assets/js/jquery.magnific-popup.min.js",
+                            "src/assets/js/isotope.pkgd.min.js",
+                            "src/assets/js/imagesloaded.pkgd.min.js",
+                            "src/assets/js/wow.min.js",
+                            "src/assets/js/count-to.js",
+                            "src/assets/js/countdown.min.js",
+                            "src/assets/js/masonry.pkgd.min.js",
+                            "src/assets/js/main.js",
+                            "node_modules/wowjs/dist/wow.js",
+                            "src/assets/js/metismenu.min.js",
+                            "src/assets/js/simplebar.min.js",
+                            "src/assets/plugins/datatables/jquery.dataTables.min.js",
+                            "src/assets/plugins/datatables/dataTables.buttons.min.js",
+                            "src/assets/plugins/datatables/pdfmake.min.js",
+                            "src/assets/plugins/datatables/buttons.print.min.js",
+                            "src/assets/plugins/datatables/buttons.flash.min.js",
+                            "src/assets/plugins/datatables/dataTables.select.min.js",
+                            "src/assets/plugins/chart-js/chart.min.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "budgets": [{
+                                    "type": "initial",
+                                    "maximumWarning": "500kb",
+                                    "maximumError": "1mb"
+                                },
+                                {
+                                    "type": "anyComponentStyle",
+                                    "maximumWarning": "2kb",
+                                    "maximumError": "4kb"
+                                }
+                            ],
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "outputHashing": "all"
+                        },
+                        "development": {
+                            "buildOptimizer": false,
+                            "optimization": false,
+                            "vendorChunk": true,
+                            "extractLicenses": false,
+                            "sourceMap": true,
+                            "namedChunks": true
+                        }
+                    },
+                    "defaultConfiguration": "production"
                 },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "ateliers:build:production"
+                        },
+                        "development": {
+                            "browserTarget": "ateliers:build:development"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "ateliers:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
+                        "assets": ["src/favicon.ico", "src/assets"],
+                        "styles": ["src/styles.css"],
+                        "scripts": []
+                    }
                 }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
             }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "ateliers:build:production"
-            },
-            "development": {
-              "browserTarget": "ateliers:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "ateliers:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
-            "scripts": []
-          }
         }
-      }
-    }
-  },
-  "defaultProject": "ateliers"
+    },
+    "defaultProject": "ateliers"
 }

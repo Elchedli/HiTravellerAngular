@@ -1,42 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AcceuilService } from 'src/app/services/acceuil.service';
 import Swal from 'sweetalert2';
 import { Chart } from 'node_modules/chart.js';
+import { Waves } from '../../../../assets/js/waves.js';
+
+declare var $: any;
 @Component({
   selector: 'app-showaddback',
   templateUrl: './showadsback.component.html',
   styleUrls: ['./showadsback.component.css'],
 })
-export class ShowadsbackComponent implements OnInit {
-  // pub: Publicite= new Publicite();
+export class ShowadsbackComponent implements OnInit,AfterViewInit {
   message: any;
   type: string = 'Remise';
   region: string = 'Global';
   place?: string;
   stats: any;
   listpub: any;
-  // ctx = document.getElementById('myChart');
-
-  // public pieChartLabels: Label[] = [['Download','Sales'],['In','Store','Sales'],'Mail Sales'];
-  // public pieChartData: number[] = [300,500,100];
-  // public pieChartType : ChartType = 'pie';
-  // public pieChartLegend= true;
-  // public pieChartPlugins : [pluginDataLabels];
-  // public pieChartOptions
-  // public pieChartColors
-
-  // public pieChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
-  // public pieChartData = [120, 150, 180, 90];
-  // public pieChartType: ChartType = 'pie';
-  // public barChartType: ChartType = 'bar';
 
   constructor(private service: AcceuilService) {}
+  ngAfterViewInit(): void {
+    scriptReady();
+  }
   ngOnInit(): void {
-    // google.charts.load('current', { packages: ['corechart'] });
-    // google.charts.setOnLoadCallback(this.drawChart);
     this.listAd();
     this.getStats();
-    // this.changeChart('blabl');
+    scriptInit();
   }
   public changeChart(datas) {
     console.log('chart is : ' + datas);
@@ -79,7 +68,7 @@ export class ShowadsbackComponent implements OnInit {
       },
     });
   }
-  // drawChart() {
+  // drawChar$() {
   //   // Define the chart to be drawn.
   //   var data = new google.visualization.DataTable();
   //   data.addColumn('string', 'Element');
@@ -91,7 +80,7 @@ export class ShowadsbackComponent implements OnInit {
   //   ]);
 
   //   // Instantiate and draw the chart.
-  //   var chart = new google.visualization.PieChart(
+  //   var chart = new google.visualization.PieChar$(
   //     document.getElementById('divPieChart')
   //   );
   //   chart.draw(data, null);
@@ -150,26 +139,37 @@ export class ShowadsbackComponent implements OnInit {
       this.listpub = datas;
       console.log(datas);
     });
-    // console.log(this.listpub);
   }
+}
 
-  // public barChartOptions = {
-  //   scaleShowVerticalLines: false,
-  //   responsive: true,
-  // };
-  // public barChartLabels = [
-  //   '2006',
-  //   '2007',
-  //   '2008',
-  //   '2009',
-  //   '2010',
-  //   '2011',
-  //   '2012',
-  // ];
-  // public barChartType = 'bar';
-  // public barChartLegend = true;
-  // public barChartData = [
-  //   { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-  //   { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-  // ];
+
+function scriptReady(){
+  $("#basic-datatable").DataTable({ language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function() { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") } });
+  var a = $("#datatable-buttons").DataTable({ lengthChange: !1, buttons: ["copy", "print", "pdf"], language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function() { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") } });
+  $("#selection-datatable").DataTable({ select: { style: "multi" }, language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function() { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") } }), $("#key-datatable").DataTable({ keys: !0, language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function() { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") } }), a.buttons().container().appendTo("#datatable-buttons_wrapper .col-md-6:eq(0)"), $("#complex-header-datatable").DataTable({ language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function() { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") }, columnDefs: [{ visible: !1, targets: -1 }] }), $("#state-saving-datatable").DataTable({ stateSave: !0, language: { paginate: { previous: "<i class='mdi mdi-chevron-left'>", next: "<i class='mdi mdi-chevron-right'>" } }, drawCallback: function() { $(".dataTables_paginate > .pagination").addClass("pagination-rounded") } })
+}
+
+function scriptInit(){
+  $("#side-menu").metisMenu(), $("#vertical-menu-btn").on("click", function() { 
+      $("body").toggleClass("enable-vertical-menu") 
+  }), 
+  $(".menu-overlay").on("click", function() { 
+    $("body").removeClass("enable-vertical-menu")
+  }), 
+  $("#sidebar-menu a").each((i,element) => {
+    var a = window.location.href.split(/[?#]/)[0];
+    element.href == a && ($(element).addClass("active"), 
+    $(element).paren$().addClass("mm-active"), 
+    $(element).paren$().paren$().addClass("mm-show"), 
+    $(element).paren$().paren$().prev().addClass("mm-active"), 
+    $(element).paren$().paren$().paren$().addClass("mm-active"), 
+    $(element).paren$().paren$().paren$().paren$().addClass("mm-show"),
+    $(element).paren$().paren$().paren$().paren$().paren$().addClass("mm-active"))
+  }), $(function() { 
+    $('[data-toggle="tooltip"]').tooltip() 
+  }), 
+  $(function() { 
+      $('[data-toggle="popover"]').popover() 
+  }),
+  Waves.init()
 }

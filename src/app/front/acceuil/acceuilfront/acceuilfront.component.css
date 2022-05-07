@@ -116,3 +116,8 @@ select.select-wrap {
   display: table;
   margin: 0 auto;
 }
+
+.partner-item img {
+  width: 138px;
+  height: 34px;
+}
