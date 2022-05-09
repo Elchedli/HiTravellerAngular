@@ -1,62 +1,54 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from '../app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './Menu/menu-back/menu.component';
+import { CreateUserComponent } from './registration/create-user/create-user.component';
+import { UserDetailsComponent } from './User/user-details/user-details.component';
+import { UserListComponent } from './User/user-list/user-list.component';
+import { UpdateUserComponent } from './User/update-user/update-user.component';
+import { LoginComponent } from './AuthenUser/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-import { MenuComponent } from './back/menu/menu.component';
-import { AcceuilService } from './services/acceuil.service';
-import { AddnewsbackComponent } from './back/news/addnewsback/addnewsback.component';
-import { ShownewsbackComponent } from './back/news/shownewsback/shownewsback.component';
-import { AjoutpartnerbackComponent } from './back/partner/ajoutpartnerback/ajoutpartnerback.component';
-import { ListpartnersbackComponent } from './back/partner/listpartnersback/listpartnersback.component';
-import { AddadsbackComponent } from './back/publicity/addadsback/addadsback.component';
-import { AddrecombackComponent } from './back/recommandation/addrecomback/addrecomback.component';
-import { ShowrecombackComponent } from './back/recommandation/showrecomback/showrecomback.component';
-import { AcceuilfrontComponent } from './front/acceuil/acceuilfront/acceuilfront.component';
-import { ShowadsbackComponent } from './back/publicity/showadsback/showadsback.component';
-import { MenuFrontComponent } from './front/menu-front/menu-front.component';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { RecomdetailsComponent } from './front/acceuil/recomdetails/recomdetails.component';
-import { NewsdetailsComponent } from './front/acceuil/newsdetails/newsdetails.component';
-import { AdsdetailsComponent } from './front/acceuil/adsdetails/adsdetails.component';
-import { ChartsModule } from 'ng2-charts';
-import { ModifyrecombackComponent } from './back/recommandation/modifyrecomback/modifyrecomback.component';
-import { ChoixmessagerieComponent } from './front/messagerie/choixmessagerie/choixmessagerie.component';
-import { ChatcomplexeComponent } from './front/messagerie/chatcomplexe/chatcomplexe.component';
-import { TestmenuComponent } from './front/testmenu/testmenu.component';
+import { CreateAdminComponent } from './registration/create-admin/create-admin.component';
+import { ForgetPasswordComponent } from './AuthenUser/forget-password/forget-password.component';
+import { VerifyEmailComponent } from './registration/verify-email/verify-email.component';
+import { ResetPasswordComponent } from './AuthenUser/reset-password/reset-password.component';
+import { MenuFrontComponent } from './Menu/menu-front/menu-front.component';
+import { CreateEmployeeComponent } from './registration/create-employee/create-employee.component';
+import { CreateInvitationComponent } from './Invitation/create-invitation/create-invitation.component';
+import { UpdateInvitationComponent } from './Invitation/update-invitation/update-invitation.component';
+import { DeleteInvitationComponent } from './Invitation/delete-invitation/delete-invitation.component';
+import { DetailsInvitationComponent } from './Invitation/details-invitation/details-invitation.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    CreateUserComponent,
+    UserDetailsComponent,
+    UserListComponent,
+    UpdateUserComponent,
+    LoginComponent,
+    CreateAdminComponent,
+    ForgetPasswordComponent,
+    VerifyEmailComponent,
+    ResetPasswordComponent,
     MenuFrontComponent,
-    AddnewsbackComponent,
-    ShownewsbackComponent,
-    AjoutpartnerbackComponent,
-    ListpartnersbackComponent,
-    AddadsbackComponent,
-    ShowadsbackComponent,
-    AddrecombackComponent,
-    ShowrecombackComponent,
-    AcceuilfrontComponent,
-    RecomdetailsComponent,
-    NewsdetailsComponent,
-    AdsdetailsComponent,
-    ModifyrecombackComponent,
-    ChoixmessagerieComponent,
-    ChatcomplexeComponent,
-    TestmenuComponent,
+    CreateEmployeeComponent,
+    CreateInvitationComponent,
+    UpdateInvitationComponent,
+    DeleteInvitationComponent,
+    DetailsInvitationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
-    NgxPaginationModule,
-    ChartsModule,
+    ReactiveFormsModule,
   ],
-  providers: [AcceuilService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,6 +1,35 @@
-<div *ngIf="router.url.includes('/back/')">
-  <app-menu></app-menu>
+<div *ngIf="router.url === '/login'"><app-login></app-login></div>
+<div *ngIf="router.url === '/signUp'"><app-create-user></app-create-user></div>
+<div *ngIf="router.url === '/signUpAdmin'">
+  <app-create-admin></app-create-admin>
 </div>
-<div *ngIf="router.url.includes('/front/')">
+<div *ngIf="router.url === '/verify'">
+  <app-verify-email></app-verify-email>
+</div>
+<div *ngIf="router.url === '/forgetPassword'">
+  <app-forget-password></app-forget-password>
+</div>
+<div *ngIf="router.url.indexOf('/forgetPassword/reset_password') > -1">
+  <app-reset-password></app-reset-password>
+</div>
+<div *ngIf="router.url === '/menuFront'">
   <app-menu-front></app-menu-front>
+</div>
+<div *ngIf="router.url === '/signUpEmployee'">
+  <app-create-employee></app-create-employee>
+</div>
+
+<div
+  *ngIf="
+    router.url !== '/login' &&
+    router.url !== '/signUp' &&
+    router.url !== '/signUpAdmin' &&
+    router.url !== '/signUpEmployee' &&
+    router.url !== '/verify' &&
+    router.url !== '/forgetPassword' &&
+    router.url !== '/menuFront' &&
+    router.url.indexOf('/forgetPassword/reset_password')
+  "
+>
+  <app-menu></app-menu>
 </div>

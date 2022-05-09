@@ -1,5 +1,9 @@
 {
+  
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -22,50 +26,14 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "src/styles.css",
-              "src/assets/css/bootstrap.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.css",
-              "node_modules/animate.css/animate.css",
-              "src/assets/plugins/datatables/buttons.bootstrap4.css",
-              "src/assets/plugins/datatables/select.bootstrap4.css",
-              "src/assets/plugins/datatables/dataTables.bootstrap4.css",
-              "src/assets/plugins/datatables/responsive.bootstrap4.css",
-              "src/assets/css/icons.min.css",
-              "src/assets/css/theme.min.css",
-              "src/assets/css/style.css"
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "src/assets/js/bootstrap.bundle.min.js",
-              "src/assets/js/jquery.easing.min.js",
-              "src/assets/js/jquery.appear.js",
-              "src/assets/js/modernizr.min.js",
-              "src/assets/js/owl.carousel.min.js",
-              "src/assets/js/jquery.nice-select.min.js",
-              "src/assets/js/jquery-ui.min.js",
-              "src/assets/js/jquery.magnific-popup.min.js",
-              "src/assets/js/isotope.pkgd.min.js",
-              "src/assets/js/imagesloaded.pkgd.min.js",
-              "src/assets/js/wow.min.js",
-              "src/assets/js/count-to.js",
-              "src/assets/js/countdown.min.js",
-              "src/assets/js/masonry.pkgd.min.js",
-              "src/assets/js/main.js",
-              "node_modules/wowjs/dist/wow.js",
-              "src/assets/js/metismenu.min.js",
-              "src/assets/js/waves.js",
-              "src/assets/js/simplebar.min.js",
-              "src/assets/plugins/datatables/jquery.dataTables.min.js",
-              "src/assets/plugins/datatables/dataTables.buttons.min.js",
-              "src/assets/plugins/datatables/pdfmake.min.js",
-              "src/assets/plugins/datatables/buttons.print.min.js",
-              "src/assets/plugins/datatables/buttons.flash.min.js",
-              "src/assets/plugins/datatables/dataTables.select.min.js",
-              "src/assets/plugins/chart-js/chart.min.js"
-            ]
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -125,13 +93,19 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
             "scripts": []
           }
         }
       }
     }
   },
-  "defaultProject": "ateliers"
+  "defaultProject": "ateliers",
+  "strictPropertyInitialization": false
 }
