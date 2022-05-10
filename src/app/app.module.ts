@@ -17,9 +17,8 @@ import { ResetPasswordComponent } from './AuthenUser/reset-password/reset-passwo
 import { MenuFrontComponent } from './Menu/menu-front/menu-front.component';
 import { CreateEmployeeComponent } from './registration/create-employee/create-employee.component';
 import { CreateInvitationComponent } from './Invitation/create-invitation/create-invitation.component';
-import { UpdateInvitationComponent } from './Invitation/update-invitation/update-invitation.component';
-import { DeleteInvitationComponent } from './Invitation/delete-invitation/delete-invitation.component';
 import { DetailsInvitationComponent } from './Invitation/details-invitation/details-invitation.component';
+import { ListComponent } from './Invitation/list/list.component';
 
 @NgModule({
   declarations: [
@@ -37,9 +36,8 @@ import { DetailsInvitationComponent } from './Invitation/details-invitation/deta
     MenuFrontComponent,
     CreateEmployeeComponent,
     CreateInvitationComponent,
-    UpdateInvitationComponent,
-    DeleteInvitationComponent,
     DetailsInvitationComponent,
+    ListComponent,
   ],
   imports: [
     BrowserModule,

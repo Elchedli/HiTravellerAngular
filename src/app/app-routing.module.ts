@@ -14,23 +14,37 @@ import { VerifyEmailComponent } from './registration/verify-email/verify-email.c
 import { ForgetPasswordComponent } from './AuthenUser/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './AuthenUser/reset-password/reset-password.component';
 import { MenuFrontComponent } from './Menu/menu-front/menu-front.component';
+import { ListComponent } from './Invitation/list/list.component';
+import { DetailsInvitationComponent } from './Invitation/details-invitation/details-invitation.component';
+import { CreateInvitationComponent } from './Invitation/create-invitation/create-invitation.component';
 
 const ROUTES: Routes = [
   { path: '', component: UserListComponent },
-  { path: 'menuFront', component: MenuFrontComponent },
-  { path: 'users', component: UserListComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'signUp', component: CreateUserComponent },
   { path: 'signUpAdmin', component: CreateAdminComponent },
   { path: 'signUpEmployee', component: CreateEmployeeComponent },
-
-  { path: 'update/:id', component: UpdateUserComponent },
+  { path: 'users', component: UserListComponent },
   { path: 'details/:id', component: UserDetailsComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'update/:id', component: UpdateUserComponent },
   { path: 'verify', component: VerifyEmailComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
   {
     path: 'forgetPassword/reset_password',
     component: ResetPasswordComponent,
+  },
+  { path: 'menuFront', component: MenuFrontComponent },
+  {
+    path: 'invitations',
+    component: ListComponent,
+  },
+  {
+    path: 'detailsInvitation/:id',
+    component: DetailsInvitationComponent,
+  },
+  {
+    path: 'createInvitation',
+    component: CreateInvitationComponent,
   },
 ];
 @NgModule({

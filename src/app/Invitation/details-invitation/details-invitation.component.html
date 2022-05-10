@@ -1,1 +1,25 @@
-<p>details-invitation works!</p>
+<h2>Invitation Details</h2>
+
+<hr />
+<div *ngIf="invitation">
+  <div>
+    <label><b>From: </b></label> {{ invitation.de }}
+  </div>
+  <div>
+    <label><b>For: </b></label> {{ invitation.pour }}
+  </div>
+  <div>
+    <label><b>Subject: </b></label> {{ invitation.sujet }}
+  </div>
+  <div>
+    <label><b>Message: </b></label> {{ invitation.message }}
+  </div>
+  <div>
+    <label><b>Image: </b></label> {{ invitation.imageName }}
+  </div>
+</div>
+
+<br />
+<br />
+<button (click)="list()" class="btn btn-primary">Back to User List</button
+><br />

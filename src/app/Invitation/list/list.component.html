@@ -1,0 +1,179 @@
+<div class="container">
+  <form #f="ngForm" method="post">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+      <div class="row">
+        <div class="col-12">
+          <div class="card-body">
+            <h4 class="card-title">Invitations</h4>
+
+            <div
+              id="state-saving-datatable_wrapper"
+              class="dataTables_wrapper dt-bootstrap4 no-footer"
+            >
+              <div class="row">
+                <div class="col-sm-12 col-md-6">
+                  <div
+                    class="dataTables_length"
+                    id="state-saving-datatable_length"
+                  >
+                    <label
+                      >Show
+                      <select
+                        name="state-saving-datatable_length"
+                        aria-controls="state-saving-datatable"
+                        class="custom-select custom-select-sm form-control form-control-sm"
+                      >
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                      entries</label
+                    >
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                  <div id="basic-datatable_filter" class="dataTables_filter">
+                    <label
+                      >Search:<input
+                        type="search"
+                        class="form-control form-control-sm"
+                        placeholder=""
+                        aria-controls="state-saving-datatable"
+                    /></label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <table
+                      id="state-saving-datatable"
+                      class="table activate-select dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
+                      role="grid"
+                      aria-describedby="state-saving-datatable_info"
+                      style="width: 1193px"
+                    >
+                      <thead>
+                        <tr role="row">
+                          <th
+                            class="sorting_asc"
+                            tabindex="0"
+                            aria-controls="state-saving-datatable"
+                            rowspan="1"
+                            colspan="1"
+                            style="width: 70px"
+                            aria-sort="ascending"
+                            aria-label="Name: activate to sort column descending"
+                          >
+                            From
+                          </th>
+                          <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="state-saving-datatable"
+                            rowspan="1"
+                            colspan="1"
+                            style="width: 70px"
+                            aria-label="Position: activate to sort column ascending"
+                          >
+                            For
+                          </th>
+                          <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="state-saving-datatable"
+                            rowspan="1"
+                            colspan="1"
+                            style="width: 90px"
+                            aria-label="Office: activate to sort column ascending"
+                          >
+                            Subject
+                          </th>
+                          <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="state-saving-datatable"
+                            rowspan="1"
+                            colspan="1"
+                            style="width: 70px"
+                            aria-label="Age: activate to sort column ascending"
+                          >
+                            Message
+                          </th>
+                          <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="state-saving-datatable"
+                            rowspan="1"
+                            colspan="1"
+                            style="width: 70px"
+                            aria-label="Age: activate to sort column ascending"
+                          >
+                            Status
+                          </th>
+                          <th
+                            class="sorting"
+                            tabindex="0"
+                            aria-controls="state-saving-datatable"
+                            rowspan="1"
+                            colspan="1"
+                            style="width: 70px"
+                            aria-label="Start date: activate to sort column ascending"
+                          >
+                            Image
+                          </th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <tr *ngFor="let invitation of invitations">
+                          <td>{{ invitation.de }}</td>
+                          <td>{{ invitation.pour }}</td>
+                          <td>{{ invitation.sujet }}</td>
+                          <td>{{ invitation.message }}</td>
+                          <td>{{ invitation.status }}</td>
+
+                          <td>
+                            <img
+                              class=""
+                              src="{{ path + invitation.imageName }}"
+                              alt="Header Language"
+                              width="200"
+                              height="121"
+                            />
+                          </td>
+                          <td>
+                            <button
+                              (click)="deleteInvitation(invitation.id)"
+                              class="btn btn-danger"
+                              style="margin-left: 10px"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- end card body-->
+          </div>
+          <!-- end col-->
+        </div>
+
+        <td>
+          <button
+            type="submit"
+            (click)="save()"
+            class="btn btn-danger"
+            style="margin-left: 10px"
+          >
+            Create New Invitation
+          </button>
+        </td>
+      </div>
+    </div>
+  </form>
+</div>

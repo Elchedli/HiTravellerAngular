@@ -12,13 +12,21 @@
 <div *ngIf="router.url.indexOf('/forgetPassword/reset_password') > -1">
   <app-reset-password></app-reset-password>
 </div>
-<div *ngIf="router.url === '/menuFront'">
-  <app-menu-front></app-menu-front>
+<div *ngIf="router.url === '/signUpEmployee'">
+  <app-create-employee></app-create-employee>
 </div>
 <div *ngIf="router.url === '/signUpEmployee'">
   <app-create-employee></app-create-employee>
 </div>
-
+<div *ngIf="router.url === '/menuFront'">
+  <app-menu-front></app-menu-front>
+</div>
+<div *ngIf="router.url === '/invitations'">
+  <app-menu-front></app-menu-front>
+</div>
+<div *ngIf="router.url === '/createInvitation'">
+  <app-menu-front></app-menu-front>
+</div>
 <div
   *ngIf="
     router.url !== '/login' &&
@@ -28,6 +36,8 @@
     router.url !== '/verify' &&
     router.url !== '/forgetPassword' &&
     router.url !== '/menuFront' &&
+    router.url !== '/invitations' &&
+    router.url !== '/createInvitation' &&
     router.url.indexOf('/forgetPassword/reset_password')
   "
 >

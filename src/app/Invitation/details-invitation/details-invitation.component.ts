@@ -1,15 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Invitation } from '../../model/invitation';
+import { Component, OnInit, Input } from '@angular/core';
+import { UserService } from '../../services/user.service';
+import { ListComponent } from '../list/list.component';
+import { Router, ActivatedRoute } from '@angular/router';
+import { InvitationService } from 'src/app/services/invitation.service';
 @Component({
   selector: 'app-details-invitation',
   templateUrl: './details-invitation.component.html',
-  styleUrls: ['./details-invitation.component.css']
+  styleUrls: ['./details-invitation.component.css'],
 })
 export class DetailsInvitationComponent implements OnInit {
+  id!: number;
+  invitation!: Invitation;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private invitationService: InvitationService
+  ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.invitation = new Invitation();
+
+    this.id = this.route.snapshot.params['id'];
+
+    this.invitationService.getInvitation(this.id).subscribe(
+      (data) => {
+        console.log(data);
+        this.invitation = data;
+      },
+      (error) => console.log(error)
+    );
   }
 
+  list() {
+    this.router.navigate(['invitations']);
+  }
 }
