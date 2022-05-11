@@ -1,0 +1,39 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+html, body {
+  margin:0px;
+}
+.mat-table {
+  overflow-x: scroll;
+}
+.table{
+  overflow-x: auto;
+  overflow-y: auto;
+  overflow: auto;
+}
+.test{
+  overflow-x: auto;
+  overflow-y: auto;
+  overflow: auto;
+}
+.mat-tab-group {
+  margin-bottom: 48px;
+}
+.dtHorizontalExampleWrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: initial;
+}
+#dtHorizontalExample th, td {
+  white-space: nowrap;
+}
+.mat-column-select {
+  overflow: initial;
+}
+.tab-content {
+  overflow: auto;
+}
+.tab-pane {
+  overflow: auto;
+}

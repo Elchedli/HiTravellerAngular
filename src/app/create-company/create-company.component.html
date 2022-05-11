@@ -1,0 +1,72 @@
+<div mat-dialog-content class="card">
+  <div class="card-body">
+    <h4 class="card-title">Basic Informations</h4>
+   <!--  <form #f="ngForm" method="Post" enctype="multipart/form-data"> --> <!-- Form groupe au lieu ngForm -->
+    <form [formGroup]="companyForm">
+      <div class="form-group">
+        <label type="text" for="nameCompany" name="nameCompany">Company name</label>
+       <!--  <input type="text" name="nameCompany" [(ngModel)]="company.nameCompany" required pattern="^[a-zA-Z]+$"
+          #n="ngModel">
+        <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+          <div *ngIf="n.errors?.['required']">This field is required</div>
+          <div *ngIf="n.errors?.['pattern']">error pattern</div>
+        </div> --> <!-- formControlName -->
+        <input type="text" formControlName="companyName">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+     <!--    <input type="email" class="form-control" name="email" [(ngModel)]="company.Email" #email="ngModel" required
+          pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors?.['required']">Email is required</div>
+          <div *ngIf="email.errors?.['email']">Must be a valid email address</div>
+        </div> -->   <!-- FormControlName 3-->
+        <input type="email" formControlName="Email">
+      </div>
+      <div class="form-group">
+        <!-- <input type="file" [(ngModel)]="company.logo" name="logo" (change)="uploadFile($event)"> -->
+        <input type="file" formControlName="logo"  (change)="uploadFile($event)">
+      </div>
+
+      <!-- <div class="form-group input-group-lg">
+        <input class="form-control" placeholder="Name" name="contactPerson" [(ngModel)]="company.contactPerson">
+      </div> -->
+
+        <div class="form-group">
+          <button type="button" class="btn btn-info waves-effect waves-light">Close</button>
+          <input style="margin-left: 10px;" class="btn btn-warning waves-effect waves-light" type="reset" value="Reset">
+         <!--  <button style="margin-left: 10px;" class="btn btn-success" [disabled]="f.invalid" (click)="save()">Submit</button>
+         -->
+          <button style="margin-left: 10px;" class="btn btn-success" (click)="addCompany()">Submit</button>
+      </div>
+
+
+
+
+    </form>
+
+  </div>
+</div>
+idCompany: any;
+nameCompany: any;
+Email: any;
+country: any;
+contactPerson:any;
+positionInCompany:any;
+city: any;
+street: any;
+postalCode:any;
+webAdress:any;
+logo: any;
+suffix:any;
+phone: any;
+fax: any;
+yearEstablished:any;
+status:any;
+type:any;
+listReferences:any;
+createdTime:any;
+verificationCode:any;
+activity:any;
+enabled: any;
+language: any;

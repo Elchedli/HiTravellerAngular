@@ -1,0 +1,4 @@
+<div *ngIf = "this.router.url.indexOf('/profile')>-1" ><app-main-profile></app-main-profile></div>
+<div *ngIf = "this.router.url.indexOf('/company')>-1" ><app-main-company></app-main-company></div>
+<div *ngIf = "this.router.url == '/ManageProfile'" ><app-menu></app-menu></div>
+<div *ngIf = "this.router.url == '/*'" ><app-pagenotfound></app-pagenotfound></div>
