@@ -128,7 +128,26 @@ export class AcceuilService {
     );
   }
 
-  //make update
-
   //Partie messagerie
+
+  public addDiscussion(dataJson: object) {
+    return this.http.post(
+      'http://localhost:8083/voyageAffaires/message/addDiscussion',
+      dataJson
+    );
+  }
+
+  public enterDiscussion(dataJson: object) {
+    return this.http.post(
+      'http://localhost:8083/voyageAffaires/message/EnterDiscussion',
+      dataJson
+    );
+  }
+
+  public addMessage(dataJson: object) {
+    return this.http.post(
+      'http://localhost:8083/voyageAffaires/message/sendMessage',
+      dataJson
+    );
+  }
 }

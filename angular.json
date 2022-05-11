@@ -34,7 +34,13 @@
               "src/assets/plugins/datatables/responsive.bootstrap4.css",
               "src/assets/css/icons.min.css",
               "src/assets/css/theme.min.css",
-              "src/assets/css/style.css"
+              "src/assets/css/style.css",
+
+              "src/assets/messagerie/libs/magnific-popup/magnific-popup.css",
+              "src/assets/messagerie/libs/owl.carousel/assets/owl.carousel.min.css",
+              "src/assets/messagerie/libs/owl.carousel/assets/owl.theme.default.min.css",
+              "src/assets/messagerie/css/app.min.css",
+              "src/assets/messagerie/css/icons.min.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -59,12 +65,23 @@
               "src/assets/js/waves.js",
               "src/assets/js/simplebar.min.js",
               "src/assets/plugins/datatables/jquery.dataTables.min.js",
+              "src/assets/plugins/datatables/dataTables.bootstrap4.js",
+              "src/assets/plugins/datatables/dataTables.responsive.min.js",
+              "src/assets/plugins/datatables/responsive.bootstrap4.min.js",
               "src/assets/plugins/datatables/dataTables.buttons.min.js",
-              "src/assets/plugins/datatables/pdfmake.min.js",
-              "src/assets/plugins/datatables/buttons.print.min.js",
+              "src/assets/plugins/datatables/buttons.bootstrap4.min.js",
+              "src/assets/plugins/datatables/buttons.html5.min.js",
               "src/assets/plugins/datatables/buttons.flash.min.js",
+              "src/assets/plugins/datatables/buttons.print.min.js",
+              "src/assets/plugins/datatables/dataTables.keyTable.min.js",
               "src/assets/plugins/datatables/dataTables.select.min.js",
-              "src/assets/plugins/chart-js/chart.min.js"
+              "src/assets/plugins/datatables/pdfmake.min.js",
+              "src/assets/plugins/datatables/vfs_fonts.js",
+              "src/assets/plugins/chart-js/chart.min.js",
+
+              "src/assets/messagerie/libs/magnific-popup/jquery.magnific-popup.min.js",
+              "src/assets/messagerie/libs/owl.carousel/owl.carousel.min.js",
+              "src/assets/messagerie/libs/simplebar/simplebar.min.js"
             ]
           },
           "configurations": {

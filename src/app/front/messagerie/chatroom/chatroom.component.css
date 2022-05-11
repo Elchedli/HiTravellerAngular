@@ -1,0 +1,141 @@
+.bosta * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+.bosta {
+  background: linear-gradient(120deg, #848484, #6265c7);
+  overflow: hidden;
+}
+.bosta input[type="text"] {
+  width: 200px;
+  height: 30px;
+  outline: none;
+  border: 1px solid #8182c1;
+  padding: 5px;
+  border-radius: 5px;
+}
+.bosta button {
+  width: 200px;
+  height: 35px;
+  margin-left: 5px;
+  outline: none;
+  border: 1px solid #8182c1;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: #4a4eab;
+  color: #fff;
+  text-transform: uppercase;
+}
+.bosta button:focus {
+  outline: none;
+}
+.bosta h2 {
+  text-align: center;
+  color: #fff;
+  padding: 5px;
+}
+
+.bosta .container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+.bosta .container h1 {
+  margin: 0.5em auto;
+  color: #fff;
+  text-align: center;
+}
+.bosta .chatbox {
+  background: rgba(255, 255, 255, 0.05);
+  width: 80%;
+  height: 75%;
+  border-radius: 0.2em;
+  position: relative;
+  box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.1);
+}
+.bosta .chatbox .messages_list {
+  overflow-y: auto;
+  height: 100%;
+}
+.bosta .chatbox__messages.mine .message-box {
+  float: right;
+}
+.bosta .chatbox__messages .message-box {
+  float: left;
+}
+.bosta .chatbox .message-box {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1em 0;
+  height: auto;
+  width: 55%;
+  border-radius: 5px;
+  margin: 2em 1em;
+  overflow: auto;
+}
+.bosta .chatbox .message-box > p.name {
+  color: #fff;
+  font-size: 1em;
+}
+.bosta .chatbox .message-box > p.message {
+  color: #fff;
+  font-size: 0.7em;
+  margin: 0 2.8em;
+}
+.bosta .chatbox__user-list {
+  background: rgba(255, 255, 255, 0.1);
+  width: 25%;
+  height: 100%;
+  float: right;
+  border-top-right-radius: 0.2em;
+  border-bottom-right-radius: 0.2em;
+}
+.bosta .chatbox__user-list h1 {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9em;
+  padding: 1em;
+  margin: 0;
+  font-weight: 300;
+  text-align: center;
+}
+.bosta .chatbox__user,
+.bosta .chatbox__user {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 100%;
+  margin: 1em 0.7em;
+}
+.bosta .chatbox__user {
+  background: rgba(23, 190, 187, 0.8);
+}
+.bosta .chatbox p {
+  float: left;
+  text-align: left;
+  margin: -0.25em 2em;
+  font-size: 0.7em;
+  font-weight: 300;
+  color: #fff;
+  width: 200px;
+}
+.bosta .chatbox form {
+  background: #222;
+}
+.bosta .chatbox form input {
+  background: rgba(255, 255, 255, 0.03);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border: none;
+  width: 75%;
+  padding: 1.2em;
+  outline: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 300;
+}

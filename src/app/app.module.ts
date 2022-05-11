@@ -25,6 +25,7 @@ import { ModifyrecombackComponent } from './back/recommandation/modifyrecomback/
 import { ChoixmessagerieComponent } from './front/messagerie/choixmessagerie/choixmessagerie.component';
 import { ChatcomplexeComponent } from './front/messagerie/chatcomplexe/chatcomplexe.component';
 import { TestmenuComponent } from './front/testmenu/testmenu.component';
+import { ChatroomComponent } from './front/messagerie/chatroom/chatroom.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +47,7 @@ import { TestmenuComponent } from './front/testmenu/testmenu.component';
     ChoixmessagerieComponent,
     ChatcomplexeComponent,
     TestmenuComponent,
+    ChatroomComponent,
   ],
   imports: [
     BrowserModule,

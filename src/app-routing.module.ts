@@ -16,6 +16,7 @@ import { ModifyrecombackComponent } from './app/back/recommandation/modifyrecomb
 import { ChoixmessagerieComponent } from './app/front/messagerie/choixmessagerie/choixmessagerie.component';
 import { ChatcomplexeComponent } from './app/front/messagerie/chatcomplexe/chatcomplexe.component';
 import { TestmenuComponent } from './app/front/testmenu/testmenu.component';
+import { ChatroomComponent } from './app/front/messagerie/chatroom/chatroom.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'back/news/show', pathMatch: 'full' },
@@ -34,8 +35,12 @@ const routes: Routes = [
   { path: 'front/acceuil/ads/:id', component: AdsdetailsComponent },
   { path: 'front/messagerie/choice', component: ChoixmessagerieComponent },
   {
-    path: 'front/messagerie/choice/complexe',
+    path: 'messagerie/choice/complexe',
     component: ChatcomplexeComponent,
+  },
+  {
+    path: 'messagerie/choice/chatroom/:name',
+    component: ChatroomComponent,
   },
   { path: 'front/test', component: TestmenuComponent },
 ];

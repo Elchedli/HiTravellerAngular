@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  Component,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { AcceuilService } from 'src/app/services/acceuil.service';
 import Swal from 'sweetalert2';
 import { Chart } from 'node_modules/chart.js';
@@ -11,7 +17,9 @@ declare var $: any;
   templateUrl: './showadsback.component.html',
   styleUrls: ['./showadsback.component.css'],
 })
-export class ShowadsbackComponent implements OnInit, AfterViewInit {
+export class ShowadsbackComponent
+  implements OnInit, AfterViewInit, AfterViewChecked
+{
   message: any;
   type: string = 'Remise';
   region: string = 'Global';
@@ -25,15 +33,23 @@ export class ShowadsbackComponent implements OnInit, AfterViewInit {
   ) {
     this.window = this.document.defaultView;
   }
+  ngAfterViewChecked(): void {}
   ngAfterViewInit(): void {
-    scriptReady();
+    // scriptReady();
   }
   ngOnInit(): void {
     this.listAd();
     this.getStats();
+
     scriptInit();
+
+    // scriptInit()
     // alert(this.window.);
     // this.window['Waves'].init();
+  }
+
+  createRange(number) {
+    return new Array(number);
   }
   public changeChart(datas) {
     console.log('chart is : ' + datas);
@@ -76,23 +92,6 @@ export class ShowadsbackComponent implements OnInit, AfterViewInit {
       },
     });
   }
-  // drawChar$() {
-  //   // Define the chart to be drawn.
-  //   var data = new google.visualization.DataTable();
-  //   data.addColumn('string', 'Element');
-  //   data.addColumn('number', 'Percentage');
-  //   data.addRows([
-  //     ['Nitrogen', 0.78],
-  //     ['Oxygen', 0.21],
-  //     ['Other', 0.01],
-  //   ]);
-
-  //   // Instantiate and draw the chart.
-  //   var chart = new google.visualization.PieChar$(
-  //     document.getElementById('divPieChart')
-  //   );
-  //   chart.draw(data, null);
-  // }
 
   public effacerAd(id: number) {
     let resp = this.service.DeleteAd(id);
@@ -125,13 +124,10 @@ export class ShowadsbackComponent implements OnInit, AfterViewInit {
     resp.subscribe((data) => {
       this.stats = data;
       this.changeChart(data);
-      // console.log(data);
     });
-    // console.log("data is : "+this.stats[0]);
   }
 
   public listAd() {
-    // console.log("region : "+this.region.toUpperCase()+" type : "+this.type.toUpperCase()+" place : "+this.place);
     let resp =
       this.region == 'Nationnal'
         ? this.service.afficherregion({
@@ -146,8 +142,45 @@ export class ShowadsbackComponent implements OnInit, AfterViewInit {
     resp.subscribe((datas) => {
       this.listpub = datas;
       console.log(datas);
+
+      setTimeout(() => {
+        scriptReady();
+      }, 300);
     });
   }
+}
+
+function scriptInit() {
+  $('#side-menu').metisMenu(),
+    $('#vertical-menu-btn').on('click', function () {
+      $('body').toggleClass('enable-vertical-menu');
+    }),
+    $('.menu-overlay').on('click', function () {
+      $('body').removeClass('enable-vertical-menu');
+    }),
+    $('#sidebar-menu a').each((i, element) => {
+      var a = window.location.href.split(/[?#]/)[0];
+      element.href == a &&
+        ($(element).addClass('active'),
+        $(element).parent().addClass('mm-active'),
+        $(element).parent().parent().addClass('mm-show'),
+        $(element).parent().parent().prev().addClass('mm-active'),
+        $(element).parent().parent().parent().addClass('mm-active'),
+        $(element).parent().parent().parent().parent().addClass('mm-show'),
+        $(element)
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .parent()
+          .addClass('mm-active'));
+    }),
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    }),
+    $(function () {
+      $('[data-toggle="popover"]').popover();
+    });
 }
 
 function scriptReady() {
@@ -227,38 +260,4 @@ function scriptReady() {
         $('.dataTables_paginate > .pagination').addClass('pagination-rounded');
       },
     });
-}
-
-function scriptInit() {
-  $('#side-menu').metisMenu(),
-    $('#vertical-menu-btn').on('click', function () {
-      $('body').toggleClass('enable-vertical-menu');
-    }),
-    $('.menu-overlay').on('click', function () {
-      $('body').removeClass('enable-vertical-menu');
-    }),
-    $('#sidebar-menu a').each((i, element) => {
-      var a = window.location.href.split(/[?#]/)[0];
-      element.href == a &&
-        ($(element).addClass('active'),
-        $(element).paren$().addClass('mm-active'),
-        $(element).paren$().paren$().addClass('mm-show'),
-        $(element).paren$().paren$().prev().addClass('mm-active'),
-        $(element).paren$().paren$().paren$().addClass('mm-active'),
-        $(element).paren$().paren$().paren$().paren$().addClass('mm-show'),
-        $(element)
-          .paren$()
-          .paren$()
-          .paren$()
-          .paren$()
-          .paren$()
-          .addClass('mm-active'));
-    }),
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip();
-    }),
-    $(function () {
-      $('[data-toggle="popover"]').popover();
-    });
-  Waves.init();
 }

@@ -30,6 +30,57 @@
 </table> -->
 
 <h2 class="label" style="margin-bottom: 30px">Ads Configuration</h2>
+<!-- <div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Buttons example</h4>
+        <p class="card-subtitle mb-4">
+          The Buttons extension for DataTables provides a common set of options,
+          API methods and styling to display buttons on a page that will
+          interact with a DataTable. The core library provides the based
+          framework upon which plug-ins can built.
+        </p>
+
+        <table
+          id="datatable-buttons"
+          class="table table-striped dt-responsive nowrap"
+        >
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Image</th>
+              <th>Published</th>
+              <th>Country</th>
+              <th>Offer</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr #allTheseThings *ngFor="let item of createRange(5)">
+              <td>hallo1</td>
+              <td>aloha1</td>
+              <td>suppa1</td>
+              <td>shneider1</td>
+              <td>
+                <img
+                  src="https://www.kimchi-passion.fr/30-large_default/chamisul-soju-classic-soju-coreen-traditionnel.jpg"
+                  alt=""
+                />
+              </td>
+              <td>slap1</td>
+              <td>
+                <button>Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> -->
 
 <div class="row">
   <div class="col-12">
@@ -47,6 +98,94 @@
           id="datatable-buttons"
           class="table table-striped dt-responsive nowrap"
         >
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Image</th>
+              <th>Published</th>
+              <th>Country</th>
+              <th>Offer</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let p of listpub; let i = index">
+              <td>{{ p.titrePub }}</td>
+              <td>{{ p.descriptionPub }}</td>
+              <td><img src="{{ p.imagePub }}" style="width: 60px" /></td>
+              <td>{{ p.publishedago }}</td>
+              <td>{{ p.country }}</td>
+              <td>{{ p.pubType }}</td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-danger waves-effect waves-light"
+                  (click)="effacerAd(p.idPub)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Basic Data Table</h4>
+        <p class="card-subtitle mb-4">
+          DataTables has most features enabled by default, so all you need to do
+          to use it with your own tables is to call the construction function:
+          <code>$().DataTable();</code>.
+        </p>
+
+        <table id="basic-datatable" class="table dt-responsive nowrap">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Tiger Nixon</td>
+              <td>System Architect</td>
+              <td>Edinburgh</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+              <td>$320,800</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Basic Data Table</h4>
+        <p class="card-subtitle mb-4">
+          DataTables has most features enabled by default, so all you need to do
+          to use it with your own tables is to call the construction function:
+          <code>$().DataTable();</code>.
+        </p>
+
+        <table id="basic-datatable" class="table dt-responsive nowrap">
           <thead>
             <tr>
               <th>Name</th>
@@ -518,67 +657,10 @@
           </tbody>
         </table>
       </div>
-      <!-- end card body-->
     </div>
-    <!-- end card -->
   </div>
-  <!-- end col-->
 </div>
-<div class="row">
-  <div class="col-12">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">Buttons example</h4>
-        <p class="card-subtitle mb-4">
-          The Buttons extension for DataTables provides a common set of options,
-          API methods and styling to display buttons on a page that will
-          interact with a DataTable. The core library provides the based
-          framework upon which plug-ins can built.
-        </p>
 
-        <table
-          id="datatable-buttons"
-          class="table table-striped dt-responsive nowrap"
-        >
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Image</th>
-              <th>Published</th>
-              <th>Country</th>
-              <th>Offer</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr *ngFor="let p of listpub; let i = index">
-              <td>{{ p.titrePub }}</td>
-              <td>{{ p.descriptionPub }}</td>
-              <td><img src="{{ p.imagePub }}" style="width: 60px" /></td>
-              <td>{{ p.publishedago }}</td>
-              <td>{{ p.country }}</td>
-              <td>{{ p.pubType }}</td>
-              <td>
-                <button
-                  type="button"
-                  class="btn btn-danger waves-effect waves-light"
-                  (click)="effacerAd(p.idPub)"
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <!-- end card body-->
-    </div>
-    <!-- end card -->
-  </div>
-  <!-- end col-->
-</div>
 <div class="row">
   <div class="col-12">
     <div class="card">
@@ -621,7 +703,6 @@
         >
           Search
         </button>
-        <!-- <button (click)="listAd()">Search</button> -->
         <a
           routerLink="/back/ad/add"
           class="btn btn-success waves-effect waves-light"
@@ -644,8 +725,8 @@
             <th>Delete</th>
           </thead>
 
-          <tbody *ngFor="let p of listpub; let i = index">
-            <tr>
+          <tbody>
+            <tr *ngFor="let p of listpub; let i = index">
               <td>{{ p.titrePub }}</td>
               <td>{{ p.descriptionPub }}</td>
               <td><img src="{{ p.imagePub }}" style="width: 60px" /></td>
@@ -665,13 +746,9 @@
           </tbody>
         </table>
       </div>
-      <!-- end card body-->
     </div>
-    <!-- end card -->
   </div>
-  <!-- end col-->
 </div>
-<!-- end row-->
 
 <h2 style="display: table; margin: 0 auto; margin-bottom: 50px">Stats</h2>
 <p *ngFor="let stat of stats; let i = index">
