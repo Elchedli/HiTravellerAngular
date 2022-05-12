@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           window.location.reload();
         });
       } else if (res.role === '[ROLE_COMPANY]') {
-        this.router.navigate(['/menuFront']).then(() => {
+        this.router.navigate(['/invitations']).then(() => {
           window.location.reload();
         });
       } else if (res.role === '[ROLE_EMPLOYEE]') {

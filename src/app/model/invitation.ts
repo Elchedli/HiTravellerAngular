@@ -7,4 +7,5 @@ export class Invitation {
   imageName: string;
   picture: File;
   status: string;
+  
 }

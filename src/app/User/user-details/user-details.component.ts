@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { UserListComponent } from '../user-list/user-list.component';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-details',
@@ -16,10 +17,15 @@ export class UserDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
+    let jwt = localStorage.getItem('access_token');
+    if (jwt == null || this.authService.isTokenExpired(jwt)) {
+      this.router.navigate(['login']);
+    }
     this.user = new User();
 
     this.id = this.route.snapshot.params['id'];

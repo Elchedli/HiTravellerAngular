@@ -2,40 +2,72 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../model/user';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MustMatch } from 'src/app/_helpers/must-match.validator';
+
 @Component({
   selector: 'app-create-employee',
   templateUrl: './create-employee.component.html',
   styleUrls: ['./create-employee.component.css'],
 })
 export class CreateEmployeeComponent implements OnInit {
-  user: User = new User();
+  registerForm: FormGroup;
   submitted = false;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {}
 
-  ngOnInit() {}
+  get f() {
+    return this.registerForm.controls;
+  }
 
-  save() {
-    this.userService.createEmployee(this.user).subscribe(
-      (data) => {
-        console.log(data);
-        this.user = new User();
+  ngOnInit() {
+    this.registerForm = this.formBuilder.group(
+      {
+        username: ['', Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', Validators.required],
+        acceptTerms: [false, Validators.requiredTrue],
       },
-      (error) => console.log(error)
+      {
+        validator: MustMatch('password', 'confirmPassword'),
+      }
     );
   }
 
   onSubmit() {
     this.submitted = true;
 
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
     this.save();
-    this.login();
+    this.router.navigate(['/verify']);
+  }
+
+  onReset() {
+    this.submitted = false;
+    this.registerForm.reset();
+  }
+
+  save() {
+    this.userService.createEmployee(this.registerForm.value).subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => console.log(error)
+    );
   }
 
   gotoList() {
     this.router.navigate(['/users']);
   }
   login() {
-    this.router.navigate(['/verify']);
+    this.router.navigate(['/login']);
   }
 }

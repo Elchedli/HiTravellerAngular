@@ -4,6 +4,7 @@ import { Invitation } from 'src/app/model/invitation';
 import { InvitationService } from 'src/app/services/invitation.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthService } from 'src/app/services/auth.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -29,10 +30,16 @@ export class CreateInvitationComponent implements OnInit {
     private invitaionService: InvitationService,
     private router: Router,
     private httpClient: HttpClient,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let jwt = localStorage.getItem('access_token');
+    if (jwt == null || this.authService.isTokenExpired(jwt)) {
+      this.router.navigate(['login']);
+    }
+  }
 
   save() {
     let jwt = localStorage.getItem('access_token');

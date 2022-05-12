@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../model/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
@@ -14,10 +15,15 @@ export class UpdateUserComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
+    let jwt = localStorage.getItem('access_token');
+    if (jwt == null || this.authService.isTokenExpired(jwt)) {
+      this.router.navigate(['login']);
+    }
     this.user = new User();
 
     this.id = this.route.snapshot.params['id'];

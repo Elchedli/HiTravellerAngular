@@ -4,6 +4,7 @@ import { UserService } from '../../services/user.service';
 import { ListComponent } from '../list/list.component';
 import { Router, ActivatedRoute } from '@angular/router';
 import { InvitationService } from 'src/app/services/invitation.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-details-invitation',
   templateUrl: './details-invitation.component.html',
@@ -16,10 +17,15 @@ export class DetailsInvitationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private invitationService: InvitationService
+    private invitationService: InvitationService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
+    let jwt = localStorage.getItem('access_token');
+    if (jwt == null || this.authService.isTokenExpired(jwt)) {
+      this.router.navigate(['login']);
+    }
     this.invitation = new Invitation();
 
     this.id = this.route.snapshot.params['id'];
