@@ -10,9 +10,17 @@ import { AcceuilService } from 'src/app/services/acceuil.service';
 export class NewsdetailsComponent implements OnInit {
   id = this.route.snapshot.paramMap.get('id');
   constructor(private service: AcceuilService, private route: ActivatedRoute) { }
-
+  listnews:any;
   ngOnInit(): void {
-
+    this.searchAd();
   }
 
+  public searchAd(){
+    let resp =  this.service.searchNews(this.id);
+    resp.subscribe((datas)=>{
+      this.listnews =  datas;
+      console.log(datas);
+    });
+    // console.log(this.listpub);
+  }
 }

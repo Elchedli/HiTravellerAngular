@@ -150,4 +150,24 @@ export class AcceuilService {
       dataJson
     );
   }
+
+
+  //search elements
+  public searchRecom(id:any) {
+    return this.http.get(
+      'http://localhost:8083/voyageAffaires/acceuil/searchRecom/'+id
+    );
+  }
+
+  public searchNews(id:any) {
+    return this.http.get(
+      'http://localhost:8083/voyageAffaires/acceuil/searchNews/'+id
+    );
+  }
+
+  public searchAd(id:any) {
+    return this.http.get(
+      'http://localhost:8083/voyageAffaires/acceuil/searchAd/'+id
+    );
+  }
 }
