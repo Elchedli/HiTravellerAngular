@@ -1,3 +1,7 @@
+import { EditCompanyComponent } from './../edit-company/edit-company.component';
+
+
+import { ManageAccountService } from './../service/manage-account.service';
 import { DeleteProfileComponent } from './../delete-profile/delete-profile.component';
 import { CompanyService } from './../company.service';
 import { Company } from './../../model/Company';
@@ -14,7 +18,8 @@ import {MatTableDataSource} from '@angular/material/table';
 
 import "@angular/compiler";
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -30,6 +35,7 @@ export class ProfileComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
+
   companyList:Company[]
   listProfile:Profile[]
   idProfile: number
@@ -37,7 +43,7 @@ export class ProfileComponent implements OnInit {
   company!:Company
   idCompany: number
 
-  constructor(private route: ActivatedRoute, private dialog : MatDialog,private service:CompanyService, private ser:ServiceProfileService) { }
+  constructor(private route: ActivatedRoute,private manager: ManageAccountService,private router:Router, private dialog : MatDialog,private service:CompanyService, private ser:ServiceProfileService) { }
 
 
   ngOnInit(): void {
@@ -96,41 +102,163 @@ deleted: null
     this.ser.getAllProfiles().subscribe(
       (datap : Profile[]) => (this.listProfile = datap)
     )
+
   }
-  dialogEditProfile(idProfile : number){
-    this.dialog.open(EditProfileComponent)
+  dialogEditProfile(id ){
+this.router.navigate(['/editProfile/'+id]);
+    /* this.dialog.open(EditProfileComponent,id)
+    width: '60%' */
+  }
+
+  dialogEditCompany(id ){
+    /* this.router.navigate(['/editProfile/'+id]); */
+    this.dialog.open(EditCompanyComponent)
     width: '60%'
   }
   dialogDeleteProfile(idProfile : number){
+
     const dialogRef = this.dialog.open(DeleteProfileComponent,{
       width : '40%',
       panelClass: 'my-dialog'
     });
-    this.idProfile = this.route.snapshot.params['id'];
+
+
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
 
-  }
-  hideAccount(){
+    /* let resp = this.manager.hideProfile(idProfile);
+    resp.subscribe(
+      (datas) => {
+        console.log(datas);
+        ({
+          position: 'center',
+          icon: 'success',
+          title: 'Your work has been saved',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        this.ser.getAllProfiles().subscribe(
+          (datap : Profile[]) => (this.listProfile = datap)
+        )
+      },
+      (error) => {
+        ({
+          position: 'center',
+          icon: 'error',
+          title: 'The request has not been passed',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    ); */
+
+
 
   }
-  deleteForEver(){
+  deleteForEverCompany(id){
+    let resp = this.manager.deleteCompany(id);
+    resp.subscribe(
+      (data) => {
+        console.log(data);
+      });
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'This company has been deleted.',
+            'success'
+          )
+        }
+      })
+      this.ngOnInit();
+  }
+  deleteForEver(id) {
+    let resp = this.manager.deleteProfile(id);
+    resp.subscribe(
+      (data) => {
+        console.log(data);
+      });
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'This user has been deleted.',
+            'success'
+          )
+        }
+      })
+      this.ngOnInit();
 
   }
-  applyFilter($event){
-   /*  const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSourceCompany.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSourceCompany.paginator) {
-      this.dataSourceCompany.paginator.firstPage(); */
+  hideAccountCompany(idCompany){
+    let resp = this.manager.hideCompany(idCompany);
+    resp.subscribe(
+      (data) => {
+        console.log(data);
+        Swal.fire ({
+          position: 'center',
+          icon: 'success',
+          title: 'This Company has been hidden',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      },
+      (error) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'The request has not been passed',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    )
+    this.ngOnInit();
   }
-  /* this.dataSourceProfile.filter = filterValue.trim().toLowerCase();
+  hideAccount(id){
+    let resp = this.manager.hideProfile(id);
+    resp.subscribe(
+      (data) => {
+        console.log(data);
+        Swal.fire ({
+          position: 'center',
+          icon: 'success',
+          title: 'This user has been hidden',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      },
+      (error) => {
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: 'The request has not been passed',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    )
+    this.ngOnInit();
+  }
 
-  if (this.dataSourceProfile.paginator) {
-    this.dataSourceProfile.paginator.firstPage(); */
-/* } */
-   /*  } */
+
     openDialogProfile(){
       this.dialog.open(CreateProfileComponent,{
         width : '60%'

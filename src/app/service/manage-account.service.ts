@@ -1,3 +1,4 @@
+import { SearchCountryField } from 'ngx-intl-tel-input';
 import { Observable } from 'rxjs';
 import { Company } from './../../model/Company';
 import { Profile } from 'src/model/Profile';
@@ -24,10 +25,10 @@ export class ManageAccountService {
   getAllActiveCompanies() : Observable<Company[]>{
     return this.http.get<Company[]>(this.api+'/getAllActiveCompany')
   }
-  getProfileById(id: number)  {
+  getProfileById(id) : Observable<Profile> {
     return this.http.get<Profile>(this.api + '/profileById/' + id)
   }
-  getCompanyById(id: number) : Observable<Company> {
+  getCompanyById(id) : Observable<Company> {
     return this.http.get<Company>(this.api + '/companyById/' + id)
   }
   addCompany(company: Company) {
@@ -36,22 +37,22 @@ export class ManageAccountService {
   addProfile(profile: Profile) {
     return this.http.post(this.api + '/addProfile', profile)
   }
-  deleteProfile(id: number) {
+  deleteProfile(id) {
     return this.http.delete(this.api + '/deleteProfile/' + id)
   }
   deleteCompany(id: number) {
     return this.http.delete(this.api + '/deleteCompany/' + id)
   }
-  hideCompany(id: number)  {
-    return this.http.put(this.api + '/masquerCompany/' + id,id)
+  hideCompany(id)  {
+    return this.http.put(this.api + '/masquerCompany/' +id ,id)
   }
-  hideProfile(id: number) {
-    return this.http.put(this.api + '/masquerProfile/' + id,id)
+  hideProfile(id) {
+    return this.http.put(this.api + '/masquerProfile/' +id ,id)
   }
-  editProfile(id:number)  {
+  editProfile(id)  {
     return this.http.put(this.api + '/editProfile/' +id, id)
   }
-  editCompany(id:number) {
+  editCompany(id) {
     return this.http.put(this.api + '/editCompany/' +id, id)
   }
   searchProfile(value : string) : Observable<Profile[]> {
@@ -60,4 +61,14 @@ export class ManageAccountService {
   searchCompany(value : string) : Observable<Company[]> {
     return this.http.get<Company[]>(this.api+'/searchByCompany/'+value)
   }
+  SearchCompanyActive(value: string) {
+    return this.http.get<Company[]>(this.api+'/searchFromCompanyActive/'+value)
+  }
+  searchProfileActive(value : string)  {
+    return this.http.get<Profile[]>(this.api+'/searchFromProfileActive/'+value)
+  }
+  searchFromLocationProfile(value : string)  {
+    return this.http.get<Profile[]>(this.api+'/searchFromLocationProfile/'+value)
+  }
+
 }

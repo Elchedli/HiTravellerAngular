@@ -1,7 +1,10 @@
+import { ManageAccountService } from './../service/manage-account.service';
 import { ServiceProfileService } from './../service/service-profile.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Profile } from 'src/model/Profile';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { SearchCountryField, CountryISO, PhoneNumberFormat } from 'ngx-intl-tel-input';
 
 @Component({
   selector: 'app-create-profile',
@@ -11,7 +14,7 @@ import { Profile } from 'src/model/Profile';
 
 export class CreateProfileComponent implements OnInit {
 
-  profile: Profile;
+  profile: Profile= new Profile;
   listProfile:any;
   selectedFiles?: FileList;
   currentFile?: File;
@@ -21,34 +24,39 @@ export class CreateProfileComponent implements OnInit {
   imagePath :any;
   imgURL : any;
   crud: any;
-  constructor(private ser:ServiceProfileService) { }
+
+
+
+
+  separateDialCode = false;
+	SearchCountryField = SearchCountryField;
+	CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+	phoneForm = new FormGroup({
+		phone: new FormControl(undefined, [Validators.required])
+	});
+
+
+  constructor(private ser:ServiceProfileService, private service:ManageAccountService) { }
 
   ngOnInit(): void {
-    this.profile= new Profile()
+
   }
 
   save(){
     console.log();
 
-    this.profileData();
-    this.ngOnInit;
+    this.service.addProfile(this.profile).subscribe(
+      (data) => {
+        console.log(data);
+        this.profile = new Profile();
+      },
+      (error) => console.log(error)
+    );
+
   }
-  public profileData(){
-    const formData = new FormData();
-    formData.append('p', JSON.stringify(this.profile));
-    formData.append('file',this.profile.photo)
 
-    let resp = this.ser.addProfile(formData);
-
-    resp.subscribe((datas)=>{
-      this.listProfile =  datas;
-      console.log(datas);
-
-     // this.router.navigate(['/viewProfile']);
-
-    });
-    // console.log(this.listarticle);
-  }
   selectFile(event: any): void {
     this.selectedFiles = event.target.files;
   }

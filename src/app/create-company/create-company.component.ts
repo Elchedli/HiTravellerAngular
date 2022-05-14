@@ -1,3 +1,4 @@
+import { ManageAccountService } from './../service/manage-account.service';
 import { Company } from './../../model/Company';
 import { Component, OnInit } from '@angular/core';
 import { CompanyService } from '../company.service';
@@ -5,6 +6,7 @@ import Swal from 'sweetalert2';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-create-company',
@@ -14,48 +16,26 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class CreateCompanyComponent implements OnInit {
 
   companyForm !: FormGroup;
-  //company: Company;
+  company: Company = new Company;
+  list:any;
+  constructor (private service:ManageAccountService, private matDialogReference:MatDialogRef<Company>) { } //, private dialogRef: MatDialogRef<Company>
 
-  constructor (private formBuilder:FormBuilder, private service : CompanyService) { } //, private dialogRef: MatDialogRef<Company>
   ngOnInit(): void {
-    /* this.company=new Company(); */
-    this.companyForm = this.formBuilder.group({
-      companyName : ['', Validators.required],
-      Email : ['', Validators.required],
-      logo : ['', Validators.required]
-
-    })
+    this.service.getAllUsers().subscribe(
+      (data)=>{
+        this.list = data;
+      }
+    )
   }
-  addCompany(){
-    console.log(this.companyForm.value);
-    //this.service.addCompany(this.companyForm)
-  }
-  currentDate = new Date();
 
-  form = new FormGroup({
-    dateYMD: new FormControl(new Date()),
-    dateFull: new FormControl(new Date()),
-    dateMDY: new FormControl(new Date()),
-    dateRange: new FormControl([
-      new Date(),
-      new Date(this.currentDate.setDate(this.currentDate.getDate() + 7))
-    ])
-  });
-
-
-
-
-save(){
-
-}
-
-/*   save(){
+  save(){
 
     let resp = this.service.addCompany(this.company);
 
     resp.subscribe((datas)=>{
       console.log(datas);
-
+     /*  this.company=new Company(); */
+      this.matDialogReference.close([]);
      Swal.fire({
       position: 'center',
       icon: 'success',
@@ -65,24 +45,19 @@ save(){
 
     })
     },err=>{
+      //this.service.sendEmailNotify(this.company.email);
       Swal.fire({
         position: 'center',
         icon: 'error',
-        title: 'The request has not been passed',
+        title: 'This account already exist',
         showConfirmButton: false,
         timer: 1500
       })
-console.error();
+
     });
     console.log("Company added with success.. okk")
-  } */
-  uploadFile(event) {
-    const file = (event.target as HTMLInputElement).files[0];
-    this.form.patchValue({
-      logo: file,
-    });
-    this.form.get('logo').updateValueAndValidity();
   }
+
 
   }
 

@@ -1,0 +1,186 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="sidebar">
+                <div class="widget border-0">
+                    <div class="search">
+                      <form  class="form-control"  (submit)="search(searchInfo)" action="#">
+                        <input class="form-control" (keydown.enter)="search(searchInfo)" name="search" type="text" placeholder="Search Keywords" [(ngModel)] = "searchInfo">
+                        <button   class="form-control" mat-raised-button type="submit" placeholder="Search Keywords" class="successButton" id="invSearch" title="Click to perform search." ><mat-icon>person_search</mat-icon>Search</button>
+                      </form>
+
+                    </div>
+                </div>
+                <div class="widget border-0">
+                    <div class="locations">
+                      <form  class="form-control"  (submit)="searchByLocation(location)" action="#">
+                        <input class="form-control" type="text" (keydown.enter)="searchByLocation(location)"  [(ngModel)] = "location" placeholder="All Locations">
+                        <button   class="form-control" mat-raised-button type="submit" placeholder="Search Keywords" class="successButton" id="invSearch" title="Click to perform search." ><mat-icon>location_searching</mat-icon>Search</button>
+                      </form>
+
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="widget">
+                    <div class="widget-title widget-collapse">
+                        <h3> <mat-icon>filter_alt</mat-icon> Gender</h3>
+                        <a class="ml-auto" data-toggle="collapse" href="#gender" role="button" aria-expanded="false" aria-controls="gender"><i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    <div class="collapse show" id="gender">.     <!-- Filter by Gender -->
+                        <div class="widget-content">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" [(ngModel)]="genderFilter.Male" (ngModelChange)="filterChange()" class="custom-control-input" id="gender1">
+                                <label class="custom-control-label" for="gender1"><h4> Male</h4> </label>
+                            </div>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" [(ngModel)]="genderFilter.Female" (ngModelChange)="filterChange()" class="custom-control-input" id="gender2">
+                                <label class="custom-control-label" for="gender2"><h4> Female</h4> </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget border-0">
+                    <div class="widget-add">
+                        <img class="img-fluid" src="images/add-banner.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h6 class="mb-0">Showing 1-10 of <span class="text-primary">{{total}}</span></h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div [hidden]=no *ngFor ="let p of listUsers; let i = index" class="col-sm-6 col-lg-4 mb-4"> <!-- Affichage profile -->
+                    <div class="candidate-list candidate-grid">
+                        <div class="candidate-list-image">
+                            <img class="img-fluid" src="{{p.photo}}" alt="">
+                        </div>
+                        <div class="candidate-list-details">
+                            <div class="candidate-list-info">
+                                <div class="candidate-list-title">
+                                    <h5><a (click)="navigateTo(p.idProfile)">{{p.nom}} {{p.prenom}}</a></h5>
+                                </div>
+                                <div class="candidate-list-option">
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-filter pr-1"></i>{{p.profession}},{{p.activity}}</li>
+                                        <li><i class="fas fa-map-marker-alt pr-1"></i>{{p.city}}, {{p.country}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="candidate-list-favourite-time">
+                                <a class="candidate-list-favourite order-2" href="#"><i class="far fa-heart"></i></a>
+                                <span class="candidate-list-time order-1"><i class="far fa-clock pr-1"></i>1M ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ng-container >                                                   <!-- Recherche -->
+                  <div class="row">
+                  <div *ngFor ="let p of data; " class="col-sm-6 col-lg-4 mb-4">
+                      <div [hidden]=yes *ngFor="let item of data" class="candidate-list candidate-grid">
+                          <div class="candidate-list-image">
+                              <img class="img-fluid" src="{{item.photo}}" alt="">
+                          </div>
+                          <div class="candidate-list-details">
+                              <div class="candidate-list-info">
+                                  <div class="candidate-list-title">
+                                      <h5><a (click)="navigateTo(p.idProfile)">{{item.nom}} {{item.prenom}}</a></h5>
+                                  </div>
+                                  <div class="candidate-list-option">
+                                      <ul class="list-unstyled">
+                                          <li><i class="fas fa-filter pr-1"></i>{{item.profession}},{{item.activity}}</li>
+                                          <li><i class="fas fa-map-marker-alt pr-1"></i>{{item.city}}, {{item.country}}</li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <div class="candidate-list-favourite-time">
+                                  <a class="candidate-list-favourite order-2" href="#"><i class="far fa-heart"></i></a>
+                                  <span class="candidate-list-time order-1"><i class="far fa-clock pr-1"></i>1M ago</span>
+                              </div>
+                          </div>
+                      </div>
+                 </div>
+                 </div>
+                    </ng-container>
+                    <ng-container >                                                   <!-- Recherche Location -->
+                      <div [hidden]=GeoHidden class="row">
+                       <h1>Searching users ... </h1>
+
+                      <div *ngFor ="let p of Geo;" class="col-sm-6 col-lg-4 mb-4">
+                          <div *ngFor="let item of Geo" class="candidate-list candidate-grid">
+                              <div class="candidate-list-image">
+                                  <img class="img-fluid" src="{{item.photo}}" alt="">
+                              </div>
+                              <div class="candidate-list-details">
+                                  <div class="candidate-list-info">
+                                      <div class="candidate-list-title">
+                                          <h5><a (click)="navigateTo(p.idProfile)">{{item.nom}} {{item.prenom}}</a></h5>
+                                      </div>
+                                      <div class="candidate-list-option">
+                                          <ul class="list-unstyled">
+                                              <li><i class="fas fa-filter pr-1"></i>{{item.profession}},{{item.activity}}</li>
+                                              <li><i class="fas fa-map-marker-alt pr-1"></i>{{item.city}}, {{item.country}}</li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                                  <div class="candidate-list-favourite-time">
+                                      <a class="candidate-list-favourite order-2" href="#"><i class="far fa-heart"></i></a>
+                                      <span class="candidate-list-time order-1"><i class="far fa-clock pr-1"></i>1M ago</span>
+                                  </div>
+                              </div>
+                          </div>
+                     </div>
+                     </div>
+                        </ng-container>
+                    <div class="row">                 <!-- Filter Gender -->
+                      <div [hidden]=yess *ngFor ="let p of genderFiltered;" class="col-sm-6 col-lg-4 mb-4"> <!-- Affichage profile filtré -->
+                          <div class="candidate-list candidate-grid">
+                              <div class="candidate-list-image">
+                                  <img class="img-fluid" src="{{p.photo}}" alt="">
+                              </div>
+                              <div class="candidate-list-details">
+                                  <div class="candidate-list-info">
+                                      <div class="candidate-list-title">
+                                          <h5><a (click)="navigateTo(p.idProfile)">{{p.nom}} {{p.prenom}}</a></h5>
+                                      </div>
+                                      <div class="candidate-list-option">
+                                          <ul class="list-unstyled">
+                                              <li><i class="fas fa-filter pr-1"></i>{{p.profession}},{{p.activity}}</li>
+                                              <li><i class="fas fa-map-marker-alt pr-1"></i>{{p.city}}, {{p.country}}</li>
+                                          </ul>
+                                      </div>
+                                  </div>
+                                  <div class="candidate-list-favourite-time">
+                                      <a class="candidate-list-favourite order-2" href="#"><i class="far fa-heart"></i></a>
+                                      <span class="candidate-list-time order-1"><i class="far fa-clock pr-1"></i>1M ago</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+            <div class="row">
+                <div class="col-12 text-center mt-4 mt-sm-5">
+                  <div *ngFor="let item of pageOfItems">{{item.name}}</div>
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item disabled"> <span class="page-link">Prev</span> </li>
+                        <li class="page-item active" aria-current="page"><span class="page-link">1 </span> <span class="sr-only">(current)</span></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">25</a></li>
+                        <li class="page-item"> <a class="page-link" href="#">Next</a> </li>
+                    </ul>
+                </div>
+            </div>
+
+    </div>
+</div>

@@ -10,18 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainProfileComponent implements OnInit {
 
+
+  id = this.route.snapshot.paramMap.get('id');
+
+
   idd:any;
   user!: Profile;
   typeId:any;
 
   constructor(private route: ActivatedRoute ,private userService:ManageAccountService) {
     this.user = new Profile();
-    alert(this.route.url);
+
   this.idd = (this.route.snapshot.paramMap.get('id'));
 
 
 
-    alert(this.idd)
+
 
     this.userService.getProfileById(this.idd).subscribe(
 
@@ -30,32 +34,10 @@ export class MainProfileComponent implements OnInit {
       this.user = data;
     },
     (error) => console.log(error)
-  ); }
+  );  }
 
   ngOnInit(): void {
-    this.user = {
-      idProfile: null,
-      salutation:null,
-      nom: null,
-      prenom: null,
-      email: null,
-      birthdate: null,
-      createdTime:null,
-      country: null,
-      city: null,
-      address: null,
-      photo: null,
-      suffix:null,
-      phone: null,
-      phone2: null,
-      bio: null,
-      profession: null,
-      nationality: null,
-      activity: null,
-      deleted: null,
-      enabled: null,
-      language: null
-  }
+    console.log("voila  "+this.id);
   }
 
 }

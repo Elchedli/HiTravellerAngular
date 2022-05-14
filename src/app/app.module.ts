@@ -28,6 +28,12 @@ import { MainProfileComponent } from './Front/main-profile/main-profile.componen
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { MenuComponent } from './menu/menu.component';
 import { MainCompanyComponent } from './Front/main-company/main-company.component';
+import { TestFrontComponent } from './test-front/test-front.component';
+import { ListUsersComponent } from './Front/list-users/list-users.component';
+import { EditCompanyComponent } from './edit-company/edit-company.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -44,6 +50,9 @@ import { MainCompanyComponent } from './Front/main-company/main-company.componen
     EditProfileComponent,
     MenuComponent,
     MainCompanyComponent,
+    TestFrontComponent,
+    ListUsersComponent,
+    EditCompanyComponent,
 
   ],
   imports: [
@@ -62,6 +71,8 @@ import { MainCompanyComponent } from './Front/main-company/main-company.componen
     MatDialogModule,
     MatTabsModule,
     NgxSpinnerModule,
+
+
     BsDatepickerModule.forRoot(),
     PaginationModule.forRoot()
   ],
